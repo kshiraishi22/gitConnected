@@ -1,10 +1,20 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from './components/pages/Home';
+import EmpCreateAccount from './components/pages/EmpCreateAccount';
+import DevCreateAccount from './components/pages/DevCreateAccount';
+import DevSimple from './components/DevSimple';
+import JobSimple from './components/JobSimple';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/dev-create-account" component={DevCreateAccount} />
+        <Route exact path="/emp-create-account" component={EmpCreateAccount} />
+      </div>
+    </Router>
   );
 }
 
