@@ -2,7 +2,7 @@
 
 const express = require("express"); // web server
 const mongoose = require("mongoose"); //database
-const dbConfig = require("./db"); //database 
+const dbConfig = require("./db/config"); //database 
 const routes = require("./routes")//api router
 
 //********* SERVER CONFIG *********************************************************************************//
