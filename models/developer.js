@@ -32,12 +32,12 @@ const developerSchema = new Schema({
     type: String,
     trim: true,
     required: true,
-    default: "Full Stack"
+    default: "fullStack"
   },
   empType:{
     type: String,
     trim: true,
-    default: "Full Time"
+    default: "fullTime"
   },
   languages:[String],
   location: {
