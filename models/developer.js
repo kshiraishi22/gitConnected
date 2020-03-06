@@ -24,7 +24,7 @@ const developerSchema = new Schema({
     trim: true,
     enum: ["West-Coast", "East-Coast", "Mid-West"]
   },
-  appliedTo: [{ type: Schema.Types.ObjectId, ref: positionSchema }]
+  appliedTo: [{ type: Schema.Types.ObjectId, ref: "Position" }]
 });
 
 const Developer = mongoose.model("Developer", developerSchema);

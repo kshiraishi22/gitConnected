@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const employerSchema = require("./employer");
-const developerSchema = require("./developer");
-
 const positionSchema = new Schema({
   title: {
     type: String,
@@ -20,8 +17,8 @@ const positionSchema = new Schema({
     type: Number,
     required: true
   },
-  applicants: [{ type: Schema.Types.ObjectId, ref: developerSchema }],
-  company: { type: Schema.Types.ObjectId, ref: employerSchema }
+  applicants: [{ type: Schema.Types.ObjectId, ref: "Developer" }],
+  company: { type: Schema.Types.ObjectId, ref: "Employer" }
 });
 
 const Position = mongoose.model("Position", positionSchema);

@@ -23,7 +23,7 @@ const employerSchema = new Schema({
     trim: true,
     required: true
   },
-  posted: [{ type: Schema.Types.ObjectId, ref: positionSchema }]
+  posted: [{ type: Schema.Types.ObjectId, ref: "Position" }]
 });
 
 const Employer = mongoose.model("Employer", employerSchema);
