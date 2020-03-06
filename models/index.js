@@ -2,5 +2,5 @@
 module.exports = {
   Developer : require("./developer"),
   Employer  : require("./employer"),
-  Position  : require("./position")
+  Job  : require("./job")
 };

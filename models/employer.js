@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const positionSchema = require("./position");
+const positionSchema = require("./job");
 
 const employerSchema = new Schema({
   userName: {
@@ -38,7 +38,7 @@ const employerSchema = new Schema({
     type: String,
     trim: true,
   },
-  posted: [{ type: Schema.Types.ObjectId, ref: "Position" }]
+  posted: [{ type: Schema.Types.ObjectId, ref: "Job" }]
 });
 
 const Employer = mongoose.model("Employer", employerSchema);
