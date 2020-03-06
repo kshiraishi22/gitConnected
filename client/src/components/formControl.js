@@ -1,16 +1,56 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
-
-
-function DevCreateAccount() {
-
-const [formObject, setFormObject] = useState({})
-
-function handleInputChange(event) {
-  const { name, value } = event.target;
-  setFormObject({...formObject, [name]: value})
-};
+function CreateAccount() {
+   // Setting our component's initial state
+   const [user, setUser] = useState([])
+   const [formObject, setFormObject] = useState({})
+ 
+   // Load all books and store them with setBooks
+  //  useEffect(() => {
+  //    loadUsers()
+  //  }, [])
+ 
+   // Loads all books and sets them to books
+  //  function loadUsers() {
+  //    API.getUsers()
+  //      .then(res => 
+  //        setUsers(res.data)
+  //      )
+  //      .catch(err => console.log(err));
+  //  };
+ 
+   // Deletes a book from the database with a given id, then reloads books from the db
+  //  function deleteUser(id) {
+  //    API.deleteUser(id)
+  //      .then(res => loadUsers())
+  //      .catch(err => console.log(err));
+  //  }
+ 
+   // Handles updating component state when the user types into the input field
+   function handleInputChange(event) {
+     const { name, value } = event.target;
+     setFormObject({...formObject, [name]: value})
+   };
+ 
+   // When the form is submitted, use the API.saveBook method to save the book data
+   // Then reload books from the database
+   function handleFormSubmit(event) {
+     event.preventDefault();
+     if (formObject.firstName && formObject.lastName) {
+       API.saveUser({
+         firstName: formObject.firstName,
+         lastName: formObject.lastName,
+         emailAddress: formObject.emailAddress,
+         location: formObject.location,
+         devType: formObject.devType,
+         empType: formObject.empType,
+         languages: formObject.languages
+       })
+        //  .then(res => loadUsers())
+         .catch(err => console.log(err));
+     }
+   };
   return (
 
     <div className='container'>
@@ -23,10 +63,10 @@ function handleInputChange(event) {
       
       <form>
         <div className="form-group">
-          <input type="text" className="form-control" id="firstName" placeholder="First Name"/>
+          <input onChange={handleInputChange} name="firstName" type="text" className="form-control" id="FirstName" placeholder="First Name"/>
         </div>
         <div className="form-group">
-          <input type="text" className="form-control" id="lastName" placeholder="Last Name"/>
+          <input onChange={handleInputChange} name="lastName" type="text" className="form-control" id="LastName" placeholder="Last Name"/>
         </div>
         <div className="form-group">
           <label>Email address</label>
@@ -35,18 +75,9 @@ function handleInputChange(event) {
         <div className="form-group">
           <label>Type of Developer</label>
           <select className="form-control" id="typeofdeveloper">
-            <option data-value='fullStack'>Full-Stack</option>
             <option data-value='frontEnd'>Front End</option>
             <option data-value='backEnd'>Back End</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Type of Employment</label>
-          <select className="form-control" id="typeofdeveloper">
-            <option data-value='fullTime'>Full-Time</option>
-            <option data-value='partTime'>Part-Time</option>
-            <option data-value='contract'>Contract</option>
-            <option data-value='volunteer'>Volunteer</option>
+            <option data-value='fullStack'>Full Stack</option>
           </select>
         </div>
         <div className="form-group">
@@ -95,13 +126,12 @@ function handleInputChange(event) {
           </div>
         </div>
         <div className="form-group">
-          <label>Tell us a little bit about yourself</label>
-          <textarea className="form-control" id="aboutMe" rows="3"></textarea>
+          <label>Add a little bit about yourself</label>
+          <input onChange={handleInputChange} name="languages" className="form-control" id="aboutMe" rows="3"></input>
         </div>
       </form>
-      <button type="button" class="btn btn-success">Submit</button>
     </div>
   )
 };
 
-export default DevCreateAccount;
+export default CreateAccount;

@@ -27,4 +27,4 @@ export default {
     updateEmployer  :   function(id, updateData){axios.put("api/employer/"+id, updateData);},
     deleteEmployer  :   function(id){axios.delete("api/employer/"+id);},
     createEmployer  :   function(empData){axios.post("api/employer" , empData);},
-}
+};
