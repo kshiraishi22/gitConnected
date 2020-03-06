@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
+
+
 function DevCreateAccount() {
+
+const [formObject, setFormObject] = useState({})
+
+function handleInputChange(event) {
+  const { name, value } = event.target;
+  setFormObject({...formObject, [name]: value})
+};
   return (
 
     <div className='container'>

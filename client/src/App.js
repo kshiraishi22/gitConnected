@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './components/pages/Home';
 import EmpCreateAccount from './components/pages/EmpCreateAccount';
 import DevCreateAccount from './components/pages/DevCreateAccount';
-import Profile from './components/pages/Profile';
 import DevSimple from './components/DevSimple';
 import Feed from './components/Feed';
 import DevProfile from "./components/pages/DevProfile"
