@@ -5,7 +5,10 @@ import EmpCreateAccount from './components/pages/EmpCreateAccount';
 import DevCreateAccount from './components/pages/DevCreateAccount';
 import Profile from './components/pages/Profile';
 import DevSimple from './components/DevSimple';
-import JobSimple from './components/JobSimple';
+import Feed from './components/Feed';
+import DevProfile from "./components/pages/DevProfile"
+import EmpProfile from "./components/pages/EmpProfile"
+
 
 import { useAuth0 } from "./react-auth0-spa";
 
@@ -17,14 +20,17 @@ function App() {
   }
 
   return (
-    <Router>
+    <Router> 
       <div>
+        <Route exact path="/feed" component ={Feed} />
         <Route exact path="/" component={Home} />
         <Route exact path="/dev-create-account" component={DevCreateAccount} />
         <Route exact path="/emp-create-account" component={EmpCreateAccount} />
-        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/profile/dev" component={DevProfile} />
+        <Route exact path="/profile/emp" component={EmpProfile} />
       </div>
     </Router>
+   
   );
 }
 

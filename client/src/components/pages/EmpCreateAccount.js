@@ -1,86 +1,41 @@
 import React, { useState, useEffect } from "react";
 
-function CreateAccount() {
+function EmpCreateAccount() {
   return (
     <div className='container'>
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
           <h1 className="display-4">Let's find you a developer (or more)</h1>
-          <p className="lead">Fill out the following to create an account.</p>
+          <p className="lead">Fill out the following to register your company.</p>
         </div>
       </div>
       
       <form>
         <div className="form-group">
-          <input type="text" className="form-control" id="FirstName" placeholder="First Name"/>
+          <input type="text" className="form-control" id="companyName" placeholder="Company Name"/>
         </div>
         <div className="form-group">
-          <input type="text" className="form-control" id="LastName" placeholder="Last Name"/>
+          <input type="text" className="form-control" id="email" placeholder="Email"/>
         </div>
         <div className="form-group">
-          <label>Email address</label>
-          <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+          <input type="text" className="form-control" id="phone" placeholder="Phone Number"/>
         </div>
         <div className="form-group">
-          <label>Type of Developer</label>
-          <select className="form-control" id="typeofdeveloper">
-            <option data-value='frontEnd'>Front End</option>
-            <option data-value='backEnd'>Back End</option>
-            <option data-value='fullStack'>Full Stack</option>
+          <label>Company Location</label>
+          <select className="form-control" id="location">
+            <option data-value='West-Coast'>West Coast</option>
+            <option data-value='East-Coast'>East Coast</option>
+            <option data-value='Mid-West'>Midwest</option>
           </select>
         </div>
         <div className="form-group">
-          <label>Select required languages</label>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="javascript" id="checkbox"/>
-            <label className="form-check-label">
-              JavaScript
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="java" id="checkbox"/>
-            <label className="form-check-label">
-              Java
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="c" id="checkbox"/>
-            <label className="form-check-label">
-              C
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="c++" id="checkbox"/>
-            <label className="form-check-label">
-              C++
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="python" id="checkbox"/>
-            <label className="form-check-label">
-              Python
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="ruby" id="checkbox"/>
-            <label className="form-check-label">
-              Ruby
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="php" id="checkbox"/>
-            <label className="form-check-label">
-              PHP
-            </label>
-          </div>
-        </div>
-        <div className="form-group">
-          <label>Add a little bit about the job</label>
-          <textarea className="form-control" id="aboutMe" rows="3"></textarea>
+          <label>Tell us a little bit about your company</label>
+          <textarea className="form-control" id="aboutCompany" rows="3"></textarea>
         </div>
       </form>
+      <button type="button" class="btn btn-success">Submit</button>
     </div>
   )
 };
 
-export default CreateAccount;
+export default EmpCreateAccount;
