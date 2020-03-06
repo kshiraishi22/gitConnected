@@ -1,10 +1,13 @@
 import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import Card from "./Card";
+import JobCard from "./jobCard";
 // import Container from "./Container";
 import Personal from "./Personal";
-class Feed extends React.Component {
+import JobDetails from "./JobDetails";
+
+
+class devFeed extends React.Component {
     // state = {
 
     // }
@@ -22,12 +25,14 @@ class Feed extends React.Component {
                 
               
                     <div className="col-5" style= {{backgroundColor: "grey", height: "500px", overflowY:"scroll"}}>
-                        <Card />
-                        {/* <Container /> */}
-                        col-8</div>
+                        <JobCard />
+                       
+                        </div>
                         
                         
-                    <div className="col-5" style= {{height: "500px"}}>col-8</div>
+                    <div className="col-5" style= {{height: "500px"}}>
+                        <JobDetails />
+                    </div>
                     
                 </div>
               
@@ -36,4 +41,4 @@ class Feed extends React.Component {
     }
 }
 
-export default Feed;
+export default devFeed;
