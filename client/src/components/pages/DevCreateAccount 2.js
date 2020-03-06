@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
 
 function CreateAccount() {
   return (
     <div className='container'>
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
-          <h1 className="display-4">Let's find you a developer (or more)</h1>
-          <p className="lead">Fill out the following to create an account.</p>
+          <h1 className="display-4">Hello Fellow Developer!</h1>
+          <p className="lead">Let's get started.  Fill out the following to create an account.</p>
         </div>
       </div>
       
@@ -30,7 +30,7 @@ function CreateAccount() {
           </select>
         </div>
         <div className="form-group">
-          <label>Select required languages</label>
+          <label>Select primary languages</label>
           <div className="form-check">
             <input className="form-check-input" type="checkbox" value="javascript" id="checkbox"/>
             <label className="form-check-label">
@@ -75,7 +75,7 @@ function CreateAccount() {
           </div>
         </div>
         <div className="form-group">
-          <label>Add a little bit about the job</label>
+          <label>Add a little bit about yourself</label>
           <textarea className="form-control" id="aboutMe" rows="3"></textarea>
         </div>
       </form>
