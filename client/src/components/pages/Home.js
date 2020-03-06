@@ -13,6 +13,8 @@ function Home() {
         <a className="list-group-item btn btn-light" type='button' href='/dev-create-account'>I'm a developer!</a>
         <a className="list-group-item btn btn-light" type='button' href='/emp-create-account'>I need a developer!</a>
       </ul>
+      <h4>OR</h4>
+      <button className='btn btn-primary'>Login</button>
     </div>
   </div>
   );
