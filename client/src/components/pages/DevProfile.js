@@ -18,9 +18,11 @@ function DevProfile() {
             <div class="card-body">
               <h2 class="card-title">About Me</h2>
               <img src="" />
-              <p class="card-text">Name:</p>
+              <p class="card-text">First Name:</p>
+              <p class="card-text">Last Name:</p>
               <p class="card-text">Email address:</p>
               <p class="card-text">Type of Developer:</p>
+              <p class="card-text">Type of Employment:</p>
               <p class="card-text">Primary Languages:</p>
               <p class="card-text">Summary:</p>
             </div>
