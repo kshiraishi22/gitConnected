@@ -9,7 +9,15 @@ import DevProfile from "./components/pages/DevProfile"
 import EmpProfile from "./components/pages/EmpProfile"
 
 
+import { useAuth0 } from "./react-auth0-spa";
+
 function App() {
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Router> 
       <div>
