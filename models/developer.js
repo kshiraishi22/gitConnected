@@ -13,16 +13,42 @@ const developerSchema = new Schema({
     type: String,
     required: true
   },
-  companyName: {
+  firstName: {
     type: String,
     trim: true,
     required: true
   },
+  lastName:{
+    type: String,
+    trim: true,
+    required: true
+  },
+  emailAddress:{
+    type: String,
+    trim: true,
+    require: true
+  },
+  devType:{
+    type: String,
+    trim: true,
+    required: true,
+    default: "Full Stack"
+  },
+  empType:{
+    type: String,
+    trim: true,
+    default: "Full Time"
+  },
+  languages:[String],
   location: {
     type: String,
     required: true,
     trim: true,
     enum: ["West-Coast", "East-Coast", "Mid-West"]
+  },
+  profile:{
+    type: String,
+    default: "Passionate developer seeking employment!"
   },
   appliedTo: [{ type: Schema.Types.ObjectId, ref: "Position" }]
 });
