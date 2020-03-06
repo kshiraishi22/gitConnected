@@ -16,12 +16,12 @@ function EmpProfile() {
         <div className="col-4">
           <div class="card mb-4">
             <div class="card-body">
-              <h2 class="card-title">About Me</h2>
+              <h2 class="card-title">About the Company</h2>
               <img src="" />
               <p class="card-text">Company Name:</p>
               <p class="card-text">Location: </p>
-              <p class="card-text"></p>
-              <p class="card-text">Primary Languages:</p>
+              <p class="card-text">Email Address:</p>
+              <p class="card-text">Phone Number:</p>
               <p class="card-text">Summary:</p>
             </div>
           </div>
@@ -29,7 +29,7 @@ function EmpProfile() {
         <div className="col-8">
           <div class="card mb-4">
             <div class="card-body">  
-              <h2 class="card-title">Applied Jobs</h2>
+              <h2 class="card-title">Posted Jobs</h2>
               <li class="card-text">Jr. Web Developer </li>
               <li class="card-text">"React Developer </li>
               <li class="card-text">"UI/UX Developer </li>

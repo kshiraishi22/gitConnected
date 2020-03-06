@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CreateAccount() {
+function DevCreateAccount() {
   return (
     <div className='container'>
       <div className="jumbotron jumbotron-fluid">
@@ -79,8 +79,9 @@ function CreateAccount() {
           <textarea className="form-control" id="aboutMe" rows="3"></textarea>
         </div>
       </form>
+      <button type="button" class="btn btn-success">Submit</button>
     </div>
   )
 };
 
-export default CreateAccount;
+export default DevCreateAccount;
