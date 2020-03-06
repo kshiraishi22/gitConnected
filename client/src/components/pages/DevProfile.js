@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from 'react-router-dom'
 
-function Profile() {
+function DevProfile() {
   return (
     <>
     <div className='container'>
@@ -53,4 +53,4 @@ function Profile() {
     </>            
   )}
 
-export default Profile
+export default DevProfile
