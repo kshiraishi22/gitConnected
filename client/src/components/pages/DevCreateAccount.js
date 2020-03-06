@@ -12,10 +12,10 @@ function DevCreateAccount() {
       
       <form>
         <div className="form-group">
-          <input type="text" className="form-control" id="FirstName" placeholder="First Name"/>
+          <input type="text" className="form-control" id="firstName" placeholder="First Name"/>
         </div>
         <div className="form-group">
-          <input type="text" className="form-control" id="LastName" placeholder="Last Name"/>
+          <input type="text" className="form-control" id="lastName" placeholder="Last Name"/>
         </div>
         <div className="form-group">
           <label>Email address</label>
@@ -24,9 +24,18 @@ function DevCreateAccount() {
         <div className="form-group">
           <label>Type of Developer</label>
           <select className="form-control" id="typeofdeveloper">
+            <option data-value='fullStack'>Full-Stack</option>
             <option data-value='frontEnd'>Front End</option>
             <option data-value='backEnd'>Back End</option>
-            <option data-value='fullStack'>Full Stack</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label>Type of Employment</label>
+          <select className="form-control" id="typeofdeveloper">
+            <option data-value='fullTime'>Full-Time</option>
+            <option data-value='partTime'>Part-Time</option>
+            <option data-value='contract'>Contract</option>
+            <option data-value='volunteer'>Volunteer</option>
           </select>
         </div>
         <div className="form-group">
@@ -75,7 +84,7 @@ function DevCreateAccount() {
           </div>
         </div>
         <div className="form-group">
-          <label>Add a little bit about yourself</label>
+          <label>Tell us a little bit about yourself</label>
           <textarea className="form-control" id="aboutMe" rows="3"></textarea>
         </div>
       </form>
