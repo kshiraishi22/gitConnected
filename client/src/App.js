@@ -7,6 +7,7 @@ import DevSimple from './components/DevSimple';
 import devFeed from './components/devFeed';
 import DevProfile from "./components/pages/DevProfile"
 import EmpProfile from "./components/pages/EmpProfile"
+import PostJob from "./components/pages/PostJob"
 
 
 import { useAuth0 } from "./react-auth0-spa";
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/emp-create-account" component={EmpCreateAccount} />
         <Route exact path="/profile/dev" component={DevProfile} />
         <Route exact path="/profile/emp" component={EmpProfile} />
+        <Route exact path="/postjob" component={PostJob} />
       </div>
     </Router>
    
