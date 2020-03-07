@@ -2,7 +2,8 @@
 const config = {
     settings: { 
       useNewUrlParser: true, 
-      useFindAndModify: false
+      useFindAndModify: false,
+      useUnifiedTopology: true
     }
   }
 
