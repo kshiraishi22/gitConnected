@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router"
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import JobCard from "./jobCard";
@@ -8,20 +9,29 @@ import JobDetails from "./JobDetails";
 import API from "../../utils/API"
 
 function DevFeed() {
-    const [jobList, setJobList] = useState([]);
+    
+    // const [jobList, setJobList] = useState([]);
 
-    useEffect(() =>{
-        loadJobs()
-    }, [])
+    // useEffect(() =>{
+    //     loadJobs()
+    // }, [])
     
-    function loadJobs(){
-        console.log("loading")
-        API.getAllJobs()
-        .then(res =>
-            setJobList(res.data))
-            .catch(err => console.log(err))
+    // function loadJobs(){
+    //     console.log("loading")
+    //     API.getAllJobs()
+    //     .then(res =>
+    //         setJobList(res.data))
+    //         .catch(err => console.log(err))
+    // }
+    
+
+        function profileSubmit(e){
+        e.preventDefault()
+        console.log("Hi")
+        const area = this
+        console.log(area)
+        // area.props.history.push("/feed/emp")
     }
-    
         return (
             <>
             <Container>
@@ -40,7 +50,10 @@ function DevFeed() {
                 <div className="row">
                 
                 <div className="col-2" style ={{backgroundColor: "blue",height: "500px", position: "relative"}}>
-                    <Personal />
+                    <Personal 
+                    
+                    // profileSubmit= {profileSubmit.bind(this)}
+                    />
                     </div>
                 
               
@@ -61,4 +74,4 @@ function DevFeed() {
     
 }
 
-export default DevFeed;
+export default withRouter(DevFeed);
