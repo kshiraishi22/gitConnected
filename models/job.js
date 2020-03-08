@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const positionSchema = new Schema({
+const jobSchema = new Schema({
   title: {
     type: String,
     trim: true,
@@ -13,7 +13,7 @@ const positionSchema = new Schema({
     required: true,
     enum: ["Front End Developer", "Back End Developer", "Full Stack Developer"]
   },
-  type:{
+  empType:{
     type: String,
     trim: true,
     required: true
@@ -32,6 +32,6 @@ const positionSchema = new Schema({
   }
 });
 
-const Position = mongoose.model("Position", positionSchema);
+const Job = mongoose.model("Job", jobSchema);
 
-module.exports = Position;
+module.exports = Job;

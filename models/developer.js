@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const positionSchema = require("./position");
+const positionSchema = require("./job");
 
 const developerSchema = new Schema({
   userName: {
@@ -50,7 +50,7 @@ const developerSchema = new Schema({
     type: String,
     default: "Passionate developer seeking employment!"
   },
-  appliedTo: [{ type: Schema.Types.ObjectId, ref: "Position" }]
+  appliedTo: [{ type: Schema.Types.ObjectId, ref: "Job" }]
 });
 
 const Developer = mongoose.model("Developer", developerSchema);

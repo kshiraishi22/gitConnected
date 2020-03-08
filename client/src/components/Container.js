@@ -1,13 +1,9 @@
-// import React from "react";
+import React from "react";
 
-// function Container  ({children}){
-//     return(
-        
-//         <div className="container" style={{width: "700px", overflowY:"scroll"}} >
-//             {children}
-//             </div>
-       
-//     )
-// }
+function Container(props){
+    return(
+        <div className="container-fluid">{props.children}</div>
+    )
+}
 
-// export default Container;
+export default Container;

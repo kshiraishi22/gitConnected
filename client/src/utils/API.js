@@ -6,12 +6,12 @@ import axios from "axios";
 // deleteDocument   :   function(id){return axios.delete("URL||route"+id);}, 
 // createDocument   :   function(DocumentData){return axios.post("URL||route", DocumentData);},   
 export default {
-    //  Position Collection
-    getAllJobs  :   function(){return axios.get("api/position");},
-    getJob      :   function(id){return axios.get("api/position"+id);},
-    updateJob   :   function(id, updateData){return axios.put("api/position"+id, updateData);},
-    deleteJob   :   function(id){return axios.delete("api/position"+id);}, 
-    createJob   :   function(jobData){return axios.post("api/position", jobData);},   
+    //  Job Collection
+    getAllJobs  :   function(){return axios.get("api/job");},
+    getJob      :   function(id){return axios.get("api/job"+id);},
+    updateJob   :   function(id, updateData){return axios.put("api/job"+id, updateData);},
+    deleteJob   :   function(id){return axios.delete("api/job"+id);}, 
+    createJob   :   function(jobData){return axios.post("api/job", jobData);},   
 
 
     //  Employer Collection

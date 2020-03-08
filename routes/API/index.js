@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const developerRoutes = require("./developers");
 const employerRoutes = require("./employers");
-const positionRoutes = require("./positions");
+const jobRoutes = require("./jobs");
 
 // Book routes
 router.use("/developer", developerRoutes);
 router.use("/employer", employerRoutes);
-router.use("/position", positionRoutes);
+router.use("/job", jobRoutes);
 
 
 module.exports = router;
