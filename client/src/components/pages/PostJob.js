@@ -32,12 +32,20 @@ class PostJob extends React.Component {
 
     if (!this.state.companyName) {
       companyNameError = "Please include a company name"
-    }
+    };
 
-    if (companyNameError) {
-      this.setState({ companyNameError})
+    if (!this.state.jobTitle) {
+      jobTitleError = "Please include a job title"
+    };
+
+    if (!this.state.aboutJob) {
+      aboutJobError = "Please include a job description"
+    };
+
+    if (companyNameError || jobTitleError || aboutJobError) {
+      this.setState({ companyNameError, jobTitleError, aboutJobError})
       return false;
-    }
+    };
 
     return true;
   }
@@ -152,5 +160,4 @@ class PostJob extends React.Component {
     </>            
   )}
 }
-
 export default PostJob;
