@@ -1,5 +1,9 @@
 import React from "react";
-import { Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import AppliedList from "../developer/AppliedList";
+import AppliedTable from "../developer/AppliedTable";
+import data from "../../data"
+
 
 const columns = [
   {id: 1, label: "Job Name"},
@@ -37,7 +41,7 @@ function DevProfile(props) {
           <div className="card mb-4">
             <div className="card-body">  
               <h2 className="card-title">Applied Jobs</h2>
-                <DevApplied columns={columns} data={data} />
+                <AppliedTable columns={columns} data={data} />
             </div>
           </div>
         </div>
@@ -48,7 +52,7 @@ function DevProfile(props) {
             <div className="card-body">
               <Route
                 exact path={`${props.match.url}/:id`}
-                render={(props) => <ListItem {...props} />}
+                render={(props) => <AppliedList {...props} />}
                 />
             </div>
           </div>  
