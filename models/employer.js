@@ -18,12 +18,6 @@ const employerSchema = new Schema({
     trim: true,
     required: true
   },
-  location: {
-    type: String,
-    trim: true,
-    required: true,
-    enum: ["West-Coast", "East-Coast", "Mid-West"]
-  },
   email:{
     type: String,
     trim: true,
@@ -33,6 +27,12 @@ const employerSchema = new Schema({
     type: String,
     trim: true,
     default: "1-800-888-8727"
+  },
+  location: {
+    type: String,
+    trim: true,
+    required: true,
+    enum: ["West-Coast", "East-Coast", "Mid-West"]
   },
   about:{
     type: String,
