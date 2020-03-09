@@ -2,6 +2,20 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 
+const initialState = {
+  firstName: "",
+  lastName: "",
+  emailAddress: "",
+  location: "",
+  devType: "",
+  empType: "",
+  languages: "",
+  profile: "",
+  firstNameError: "",
+  lastNameError: "",
+  emailAddressError: ""
+}
+
 
 function DevCreateAccount() {
 
@@ -15,8 +29,21 @@ function DevCreateAccount() {
     console.log(formObject)
   };
 
+  function validateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formObject.emailAddress.value)) {
+      return (true)
+    }
+    else {
+      alert("You have entered an invalid email address!")
+      return (false)
+    }
+  };
+
+
   function handleFormSubmit(event) {
     event.preventDefault();
+    this.setState(initialState)
+    validateEmail(formObject.emailAddress);
     if (formObject.firstName && formObject.lastName && formObject.emailAddress) {
       API.createDev({
         firstName: formObject.firstName,
@@ -32,6 +59,7 @@ function DevCreateAccount() {
         .catch(err => console.log(err));
     }
   };
+
   return (
 
     <div className='container'>
@@ -120,7 +148,7 @@ function DevCreateAccount() {
           <textarea className="form-control" id="aboutMe" rows="3"></textarea>
         </div>
       </form>
-      <button onChange={handleInputChange} name="profile" type="button" class="btn btn-success" disabled={!(formObject.firstName && formObject.lastName && formObject.emailAddress)} onClick={handleFormSubmit}>Submit</button>
+      <button onChange={handleInputChange} name="profile" type="button" className="btn btn-success" disabled={!(formObject.firstName && formObject.lastName && formObject.emailAddress)} onClick={handleFormSubmit}>Submit</button>
     </div>
   )
 };
