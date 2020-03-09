@@ -31,7 +31,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/dev-create-account" component={DevCreateAccount} />
         <Route exact path="/emp-create-account" component={EmpCreateAccount} />
-        <Route exact path="/profile/dev" component={DevProfile} />
+        <Route path="/profile/dev" component={DevProfile} />
         <Route exact path="/profile/emp" component={EmpProfile} />
         <Route exact path="/postjob" component={PostJob} />
       </div>
