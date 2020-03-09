@@ -99,8 +99,60 @@ const companySeed = [
   }
 ]
 
+const developerSeed = [
+  {
+    developers: [
+      {
+        userName: 'aaa',
+        password: '123',
+        firstName: 'Anna',
+        lastName: 'Turner',
+        emailAddress: 'anna.turner@mail.com',
+        devType: 'fullStack',
+        empType: 'fullTime',
+        languages: 'python',
+        location: 'Mid-West',
+        profile: 'I write code'
+      }
+    ]
+  },
+  {
+    developers: [
+      {
+        userName: 'bbb',
+        password: '456',
+        firstName: 'Joe',
+        lastName: 'Alestra',
+        emailAddress: 'jalestra@mail.com',
+        devType: 'fullStack',
+        empType: 'fullTime',
+        languages: 'python',
+        location: 'Mid-West',
+        profile: 'I write code'
+      }
+    ]
+  },
+  {
+    developers: [
+      {
+        userName: 'ccc',
+        password: '789',
+        firstName: 'Barry',
+        lastName: 'Man',
+        emailAddress: 'bman@mail.com',
+        devType: 'fullStack',
+        empType: 'fullTime',
+        languages: 'python',
+        location: 'Mid-West',
+        profile: 'I write code'
+      }
+    ]
+  }
+]
+
 db.Job.deleteMany({})
   .then(() => db.Job.collection.insertMany(companySeed))
+  .then(()=> db.Developer.collection.insertMany(developerSeed))
   .then(data => {
     console.log(data)
   });

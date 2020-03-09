@@ -6,7 +6,8 @@ import API from "../../utils/API";
 function DevCreateAccount() {
 
   useEffect(() => {}, [])
-  const [formObject, setFormObject] = useState({})
+  const [formObject, setFormObject] = useState({});
+  const [devData, setDevData] = useState({});
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -16,7 +17,7 @@ function DevCreateAccount() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.author) {
+    if (formObject.firstName && formObject.lastName && formObject.emailAddress) {
       API.createDev({
         firstName: formObject.firstName,
           lastName: formObject.lastName,
@@ -24,9 +25,10 @@ function DevCreateAccount() {
           location: formObject.location,
           devType: formObject.devType,
           empType: formObject.empType,
-          languages: formObject.languages
+          languages: formObject.languages,
+          profile: formObject.profile
         })
-        .then(res => API.getAllDevs())
+        .then(() => console.log(formObject))
         .catch(err => console.log(err));
     }
   };
@@ -54,18 +56,18 @@ function DevCreateAccount() {
         <div className="form-group">
           <label>Type of Developer</label>
           <select className="form-control" id="typeofdeveloper">
-            <option data-value='fullStack'>Full-Stack</option>
-            <option data-value='frontEnd'>Front End</option>
-            <option data-value='backEnd'>Back End</option>
+            <option onChange={handleInputChange} name="devType" value='fullStack' data-value='fullStack'>Full-Stack</option>
+            <option onChange={handleInputChange} name="devType" value='frontEnd' data-value='frontEnd'>Front End</option>
+            <option onChange={handleInputChange} name="devType" value='backEnd' data-value='backEnd'>Back End</option>
           </select>
         </div>
         <div className="form-group">
           <label>Type of Employment</label>
           <select className="form-control" id="typeofdeveloper">
-            <option data-value='fullTime'>Full-Time</option>
-            <option data-value='partTime'>Part-Time</option>
-            <option data-value='contract'>Contract</option>
-            <option data-value='volunteer'>Volunteer</option>
+            <option onChange={handleInputChange} name="empType" value='fullTime' data-value='fullTime'>Full-Time</option>
+            <option onChange={handleInputChange} name="empType" value='partTime' data-value='partTime'>Part-Time</option>
+            <option onChange={handleInputChange} name="empType" value='contract' data-value='contract'>Contract</option>
+            <option onChange={handleInputChange} name="empType" value='volunteer' data-value='volunteer'>Volunteer</option>
           </select>
         </div>
         <div className="form-group">
@@ -118,7 +120,7 @@ function DevCreateAccount() {
           <textarea className="form-control" id="aboutMe" rows="3"></textarea>
         </div>
       </form>
-      <button type="button" class="btn btn-success" disabled={!(formObject.firstName && formObject.lastName && formObject.emailAddress)} onClick={handleFormSubmit}>Submit</button>
+      <button onChange={handleInputChange} name="profile" type="button" class="btn btn-success" disabled={!(formObject.firstName && formObject.lastName && formObject.emailAddress)} onClick={handleFormSubmit}>Submit</button>
     </div>
   )
 };
