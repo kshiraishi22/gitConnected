@@ -8,10 +8,7 @@ function Personal(props) {
             {/* <div className="card-body"> */}
             <h2>Developer John</h2>
             <br />
-            {/* <button type="button" class="btn btn-secondary btn-block" style={{marginBottom: "0"}}> Update Profile</button> */}
-            {/* <button className="btn btn-secondary btn-block" onClick={props.profileSubmit} style={{position: "absolute", bottom: "5px"}}> */}
-
-            {/* Update Profile</button> */}
+           
 
             <Link to="/profile/dev" role="button" className="btn btn-secondary btn-block" style={{ position: "absolute", bottom: "5px" }}>
                 Update Profile
