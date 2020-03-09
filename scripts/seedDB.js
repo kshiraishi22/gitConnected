@@ -2,7 +2,7 @@ mongoose = require("mongoose");
 const db = require("../models")
 
 mongoose.connect(
-  porcess.env.MONGODB_URI ||
+  process.env.MONGODB_URI ||
   "mongodb://localhost/devNetwork_DB"
 );
 

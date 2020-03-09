@@ -10,19 +10,18 @@ import API from "../../utils/API"
 
 function DevFeed() {
     
-    // const [jobList, setJobList] = useState([]);
+    const [jobList, setJobList] = useState([]);
 
-    // useEffect(() =>{
-    //     loadJobs()
-    // }, [])
+    useEffect(() =>{
+        loadJobs()
+    }, [])
     
-    // function loadJobs(){
-    //     console.log("loading")
-    //     API.getAllJobs()
-    //     .then(res =>
-    //         setJobList(res.data))
-    //         .catch(err => console.log(err))
-    // }
+    function loadJobs(){
+        API.getAllJobs()
+        .then(res =>{
+            console.log(res)
+        })
+    }
     
 
         function profileSubmit(e){
