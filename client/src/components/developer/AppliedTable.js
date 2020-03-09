@@ -3,7 +3,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-function DevApplied(props){
+function AppliedTable(props){
   return (
     <>
       <table className="table">
@@ -22,13 +22,13 @@ function DevApplied(props){
                   {row.name}
                 </Link>
               </td>
-              <td>{row.</td>
-
+              <td>{row.date}</td>
             </tr>
-
-
+          ))}
         </tbody>
       </table>
     </>
   )
 }
+
+export default AppliedTable;
