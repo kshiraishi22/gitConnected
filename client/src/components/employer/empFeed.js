@@ -7,7 +7,7 @@ import EmpPersonal from "./empPersonal";
 import DevDetails from "./devDetails";
 // import API from "../utils/API"
 
-function devFeed() {
+function EmpFeed() {
     // const [jobList, setJobList] = useState([]);
 
     // useEffect(() =>{
@@ -53,4 +53,4 @@ function devFeed() {
     
 }
 
-export default devFeed;
+export default EmpFeed;
