@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import { useAuth0 } from "../../react-auth0-spa";
 
 function Home() {
+
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   return (
   <div className="container">
     <div className="jumbotron">
@@ -14,7 +18,13 @@ function Home() {
         <a className="list-group-item btn btn-light" type='button' href='/emp-create-account'>I need a developer!</a>
       </ul>
       <h4>OR</h4>
-      <button className='btn btn-primary'>Login</button>
+      <div>
+      {!isAuthenticated && (
+        <button className='btn btn-light' onClick={() => loginWithRedirect({})}>Log in</button>
+      )}
+
+      {isAuthenticated && <button className='btn btn-light' onClick={() => logout()}>Log out</button>}
+    </div>
     </div>
   </div>
   );

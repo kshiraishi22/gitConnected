@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 
+
 const initialState = {
   firstName: "",
   lastName: "",
@@ -10,11 +11,9 @@ const initialState = {
   devType: "",
   empType: "",
   languages: "",
-  profile: "",
-  firstNameError: "",
-  lastNameError: "",
-  emailAddressError: ""
+  profile: ""
 }
+
 
 
 function DevCreateAccount() {
@@ -30,7 +29,7 @@ function DevCreateAccount() {
   };
 
   function validateEmail(mail) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formObject.emailAddress.value)) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
       return (true)
     }
     else {
@@ -45,8 +44,10 @@ function DevCreateAccount() {
     this.setState(initialState)
     validateEmail(formObject.emailAddress);
     if (formObject.firstName && formObject.lastName && formObject.emailAddress) {
-      API.createDev({
-        firstName: formObject.firstName,
+      console.log(formObject)
+      API.createDev(
+        {
+          firstName: formObject.firstName,
           lastName: formObject.lastName,
           emailAddress: formObject.emailAddress,
           location: formObject.location,
@@ -54,10 +55,9 @@ function DevCreateAccount() {
           empType: formObject.empType,
           languages: formObject.languages,
           profile: formObject.profile
-        })
-        .then(() => console.log(formObject))
-        .catch(err => console.log(err));
-    }
+        }
+      ).catch(err => console.log(err));
+    };
   };
 
   return (
