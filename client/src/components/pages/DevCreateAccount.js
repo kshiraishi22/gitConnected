@@ -2,15 +2,64 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
 
+const initialState = {
+  firstName: "",
+  lastName: "",
+  emailAddress: "",
+  location: "",
+  devType: "",
+  empType: "",
+  languages: "",
+  profile: "",
+  firstNameError: "",
+  lastNameError: "",
+  emailAddressError: ""
+}
+
 
 function DevCreateAccount() {
 
-const [formObject, setFormObject] = useState({})
+  useEffect(() => {}, [])
+  const [formObject, setFormObject] = useState({});
+  const [devData, setDevData] = useState({});
 
-function handleInputChange(event) {
-  const { name, value } = event.target;
-  setFormObject({...formObject, [name]: value})
-};
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setFormObject({...formObject, [name]: value})
+    console.log(formObject)
+  };
+
+  function validateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formObject.emailAddress.value)) {
+      return (true)
+    }
+    else {
+      alert("You have entered an invalid email address!")
+      return (false)
+    }
+  };
+
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    this.setState(initialState)
+    validateEmail(formObject.emailAddress);
+    if (formObject.firstName && formObject.lastName && formObject.emailAddress) {
+      API.createDev({
+        firstName: formObject.firstName,
+          lastName: formObject.lastName,
+          emailAddress: formObject.emailAddress,
+          location: formObject.location,
+          devType: formObject.devType,
+          empType: formObject.empType,
+          languages: formObject.languages,
+          profile: formObject.profile
+        })
+        .then(() => console.log(formObject))
+        .catch(err => console.log(err));
+    }
+  };
+
   return (
 
     <div className='container'>
@@ -23,30 +72,30 @@ function handleInputChange(event) {
       
       <form>
         <div className="form-group">
-          <input type="text" className="form-control" id="firstName" placeholder="First Name"/>
+          <input onChange={handleInputChange} name="firstName" type="text" className="form-control" id="firstName" placeholder="First Name (Required)"/>
         </div>
         <div className="form-group">
-          <input type="text" className="form-control" id="lastName" placeholder="Last Name"/>
+          <input onChange={handleInputChange} name="lastName" type="text" className="form-control" id="lastName" placeholder="Last Name (Required)"/>
         </div>
         <div className="form-group">
           <label>Email address</label>
-          <input onChange={handleInputChange} name="emailAddress" type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+          <input onChange={handleInputChange} name="emailAddress" type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com (Required)"/>
         </div>
         <div className="form-group">
           <label>Type of Developer</label>
           <select className="form-control" id="typeofdeveloper">
-            <option data-value='fullStack'>Full-Stack</option>
-            <option data-value='frontEnd'>Front End</option>
-            <option data-value='backEnd'>Back End</option>
+            <option onChange={handleInputChange} name="devType" value='fullStack' data-value='fullStack'>Full-Stack</option>
+            <option onChange={handleInputChange} name="devType" value='frontEnd' data-value='frontEnd'>Front End</option>
+            <option onChange={handleInputChange} name="devType" value='backEnd' data-value='backEnd'>Back End</option>
           </select>
         </div>
         <div className="form-group">
           <label>Type of Employment</label>
           <select className="form-control" id="typeofdeveloper">
-            <option data-value='fullTime'>Full-Time</option>
-            <option data-value='partTime'>Part-Time</option>
-            <option data-value='contract'>Contract</option>
-            <option data-value='volunteer'>Volunteer</option>
+            <option onChange={handleInputChange} name="empType" value='fullTime' data-value='fullTime'>Full-Time</option>
+            <option onChange={handleInputChange} name="empType" value='partTime' data-value='partTime'>Part-Time</option>
+            <option onChange={handleInputChange} name="empType" value='contract' data-value='contract'>Contract</option>
+            <option onChange={handleInputChange} name="empType" value='volunteer' data-value='volunteer'>Volunteer</option>
           </select>
         </div>
         <div className="form-group">
@@ -99,7 +148,7 @@ function handleInputChange(event) {
           <textarea className="form-control" id="aboutMe" rows="3"></textarea>
         </div>
       </form>
-      <button type="button" class="btn btn-success">Submit</button>
+      <button onChange={handleInputChange} name="profile" type="button" className="btn btn-success" disabled={!(formObject.firstName && formObject.lastName && formObject.emailAddress)} onClick={handleFormSubmit}>Submit</button>
     </div>
   )
 };

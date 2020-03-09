@@ -199,8 +199,59 @@ const companySeed = [
   }
 ]
 
+const developerSeed = [
+  {
+    developers: [
+      {
+        userName: 'aaa',
+        password: '123',
+        firstName: 'Anna',
+        lastName: 'Turner',
+        emailAddress: 'anna.turner@mail.com',
+        devType: 'fullStack',
+        empType: 'fullTime',
+        languages: 'python',
+        location: 'Mid-West',
+        profile: 'I write code'
+      }
+    ]
+  },
+  {
+    developers: [
+      {
+        userName: 'bbb',
+        password: '456',
+        firstName: 'Joe',
+        lastName: 'Alestra',
+        emailAddress: 'jalestra@mail.com',
+        devType: 'fullStack',
+        empType: 'fullTime',
+        languages: 'python',
+        location: 'Mid-West',
+        profile: 'I write code'
+      }
+    ]
+  },
+  {
+    developers: [
+      {
+        userName: 'ccc',
+        password: '789',
+        firstName: 'Barry',
+        lastName: 'Man',
+        emailAddress: 'bman@mail.com',
+        devType: 'fullStack',
+        empType: 'fullTime',
+        languages: 'python',
+        location: 'Mid-West',
+        profile: 'I write code'
+      }
+    ]
+  }
+]
+
 db.Job.deleteMany({})
-  .then(() => db.Job.collection.insertMany(jobSeed))
+  .then(() => db.Job.collection.insertMany(companySeed))
   .then(data => {
     console.log(data)
   });
@@ -209,6 +260,11 @@ db.Employer.deleteMany({})
   .then(()=>{db.Employer.collection.insertMany(companySeed)})
   .then(data =>{
     console.log(data)
-  })
+  });
 
+db.Developer.deleteMany({})
+  .then(()=> db.Developer.collection.insertMany(developerSeed))
+  .then(data => {
+    console.log(data)
+  });
   //who ever seeds developer copy above code to delete anything that could exist in the developer seed (db.Developer.deleteMany) and then seed the db with your array of objects containing relevant developer info
