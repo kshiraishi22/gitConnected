@@ -257,7 +257,7 @@ db.Job.deleteMany({})
   });
 
 db.Employer.deleteMany({})
-  .then(()=>{db.Employer.collection.insertMany(companySeed)})
+  .then(()=>{db.Employer.collection.insertMany(jobSeed)})
   .then(data =>{
     console.log(data)
   });
