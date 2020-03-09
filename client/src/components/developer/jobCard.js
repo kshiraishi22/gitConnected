@@ -1,6 +1,8 @@
 import React from "react";
+import JobDetails from "./JobDetails";
+import { Link, Route } from "react-router-dom";
 
-function jobCard(props) {
+function JobCard(props) {
     return (
         <>
             <div className="card" style={{marginTop: "5px"}}>
@@ -12,7 +14,12 @@ function jobCard(props) {
                     <p className="card-text">Position</p>
                     <p className="card-text">Salary</p>
                     <p className="card-text">Location</p>
-                    <a href="#" className="btn btn-primary">Details</a>
+                    {/* <Link to={`${props.match.url}jobdetails`} role="button" className="btn btn-secondary btn-block" style={{ position: "absolute", bottom: "5px" }}>
+                    Update Profile
+                    </Link>{" "}
+                    <Route exact path={`${props.match.url}jobdetails`} component={JobDetails} /> */}
+
+                    {/* <a href="#" className="btn btn-primary">Details</a> */}
                 </div>
             </div>
            
@@ -21,4 +28,4 @@ function jobCard(props) {
     )
 }
 
-export default jobCard;
+export default JobCard;

@@ -26,7 +26,7 @@ function App() {
 
     <Router> 
       <div>
-        <Route path="/feed/dev" component ={DevFeed} />
+        <Route path="/feed/dev/" component ={DevFeed} />
         <Route path="/feed/emp" component ={EmpFeed} />
         <Route exact path="/" component={Home} />
         <Route exact path="/dev-create-account" component={DevCreateAccount} />
