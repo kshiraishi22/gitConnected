@@ -1,7 +1,7 @@
 // DevApplied = ListTable
 
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function AppliedTable(props){
   return (
@@ -22,7 +22,6 @@ function AppliedTable(props){
                   {row.name}
                 </Link>
               </td>
-              <td>{row.date}</td>
             </tr>
           ))}
         </tbody>

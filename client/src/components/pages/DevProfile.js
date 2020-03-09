@@ -7,7 +7,6 @@ import data from "../../data"
 
 const columns = [
   {id: 1, label: "Job Name"},
-  {id: 2, label: "Date Applied"}
 ]
 
 function DevProfile(props) {
@@ -22,7 +21,7 @@ function DevProfile(props) {
     </div>
     <div className="container">
       <div className="row">
-        <div className="col-4">
+        <div className="col-3">
           <div className="card mb-4">
             <div className="card-body">
               <h2 className="card-title">About Me</h2>
@@ -37,7 +36,7 @@ function DevProfile(props) {
             </div>
           </div>
         </div>
-        <div className="col-8">
+        <div className="col-3">
           <div className="card mb-4">
             <div className="card-body">  
               <h2 className="card-title">Applied Jobs</h2>
@@ -45,10 +44,8 @@ function DevProfile(props) {
             </div>
           </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <div className="card">
+        <div className="col-6">
+          <div className="card mb-4">
             <div className="card-body">
               <Route
                 exact path={`${props.match.url}/:id`}
