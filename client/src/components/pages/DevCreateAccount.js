@@ -3,24 +3,10 @@ import API from "../../utils/API";
 
 
 
-const initialState = {
-  firstName: "",
-  lastName: "",
-  emailAddress: "",
-  location: "",
-  devType: "",
-  empType: "",
-  languages: "",
-  profile: ""
-}
+function DevCreateAccount(props) {
 
-
-
-function DevCreateAccount() {
-
-  useEffect(() => {}, [])
+  useEffect(() => {}, []);
   const [formObject, setFormObject] = useState({});
-  const [devData, setDevData] = useState({});
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -29,7 +15,7 @@ function DevCreateAccount() {
   };
 
   function validateEmail(mail) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
       return (true)
     }
     else {
@@ -38,10 +24,9 @@ function DevCreateAccount() {
     }
   };
 
-
   function handleFormSubmit(event) {
     event.preventDefault();
-    this.setState(initialState)
+    // this.setState(initialState)
     validateEmail(formObject.emailAddress);
     if (formObject.firstName && formObject.lastName && formObject.emailAddress) {
       console.log(formObject)
@@ -51,9 +36,9 @@ function DevCreateAccount() {
           lastName: formObject.lastName,
           emailAddress: formObject.emailAddress,
           location: formObject.location,
-          devType: formObject.devType,
-          empType: formObject.empType,
-          languages: formObject.languages,
+          devType: formObject.value,
+          empType: formObject.value,
+          languages: formObject.value,
           profile: formObject.profile
         }
       ).catch(err => console.log(err));
@@ -79,7 +64,7 @@ function DevCreateAccount() {
         </div>
         <div className="form-group">
           <label>Email address</label>
-          <input onChange={handleInputChange} name="emailAddress" type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com (Required)"/>
+          <input onChange={handleInputChange} name="emailAddress" type="email" className="form-control" id="emailAddress" placeholder="name@example.com (Required)"/>
         </div>
         <div className="form-group">
           <label>Type of Developer</label>
@@ -99,53 +84,21 @@ function DevCreateAccount() {
           </select>
         </div>
         <div className="form-group">
-          <label>Select primary languages</label>
-          <div className="form-check">
-            <input onChange={handleInputChange} name="languages" className="form-check-input" type="checkbox" value="javascript" id="checkbox"/>
-            <label className="form-check-label">
-              JavaScript
-            </label>
-          </div>
-          <div className="form-check">
-            <input onChange={handleInputChange} name="languages" className="form-check-input" type="checkbox" value="java" id="checkbox"/>
-            <label className="form-check-label">
-              Java
-            </label>
-          </div>
-          <div className="form-check">
-            <input onChange={handleInputChange} name="languages" className="form-check-input" type="checkbox" value="c" id="checkbox"/>
-            <label className="form-check-label">
-              C
-            </label>
-          </div>
-          <div className="form-check">
-            <input onChange={handleInputChange} name="languages" className="form-check-input" type="checkbox" value="c++" id="checkbox"/>
-            <label className="form-check-label">
-              C++
-            </label>
-          </div>
-          <div className="form-check">
-            <input onChange={handleInputChange} name="languages" className="form-check-input" type="checkbox" value="python" id="checkbox"/>
-            <label className="form-check-label">
-              Python
-            </label>
-          </div>
-          <div className="form-check">
-            <input onChange={handleInputChange} name="languages" className="form-check-input" type="checkbox" value="ruby" id="checkbox"/>
-            <label className="form-check-label">
-              Ruby
-            </label>
-          </div>
-          <div className="form-check">
-            <input onChange={handleInputChange} name="languages" className="form-check-input" type="checkbox" value="php" id="checkbox"/>
-            <label className="form-check-label">
-              PHP
-            </label>
-          </div>
+          <label>Select your primary language</label>
+          <select className="form-control" id='languages'>
+            <option onChange={handleInputChange} name="empType" value='fullTime' data-value='fullTime'>JavaScript</option>
+            <option onChange={handleInputChange} name="empType" value='partTime' data-value='partTime'>Java</option>
+            <option onChange={handleInputChange} name="empType" value='contract' data-value='contract'>C</option>
+            <option onChange={handleInputChange} name="empType" value='volunteer' data-value='volunteer'>C++</option>
+            <option onChange={handleInputChange} name="empType" value='volunteer' data-value='volunteer'>PHP</option>
+            <option onChange={handleInputChange} name="empType" value='volunteer' data-value='volunteer'>Python</option>
+            <option onChange={handleInputChange} name="empType" value='volunteer' data-value='volunteer'>Ruby</option>
+            <option onChange={handleInputChange} name="empType" value='volunteer' data-value='volunteer'>Other</option>
+          </select>
         </div>
         <div className="form-group">
           <label>Tell us a little bit about yourself</label>
-          <textarea className="form-control" id="aboutMe" rows="3"></textarea>
+          <textarea onChange={handleInputChange} name="profile" className="form-control" id="aboutMe" rows="3"></textarea>
         </div>
       </form>
       <button onChange={handleInputChange} name="profile" type="button" className="btn btn-success" disabled={!(formObject.firstName && formObject.lastName && formObject.emailAddress)} onClick={handleFormSubmit}>Submit</button>
