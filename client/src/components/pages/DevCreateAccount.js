@@ -8,11 +8,10 @@ function DevCreateAccount() {
     emailAddress:"",
     devType:"",
     empType:"",
-    languages:[],
+    language:"",
     location:"",
     profile:"",
   });
-  console.log(formObject);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -60,7 +59,7 @@ function DevCreateAccount() {
         .catch(err => console.log(err));
     }
   }
-
+  
   return (
     <div className="container">
       <div className="jumbotron jumbotron-fluid">
@@ -103,6 +102,7 @@ function DevCreateAccount() {
             id="exampleFormControlInput1"
             placeholder="name@example.com (Required)"
           />
+
         </div>
         <div className="form-group">
           <label>Type of Developer</label>
@@ -146,88 +146,23 @@ function DevCreateAccount() {
           </select>
         </div>
         <div className="form-group">
-          <label>Select primary languages</label>
-          <div className="form-check">
-            <input
-              onChange={handleInputChange}
-              name="languages"
-              className="form-check-input"
-              type="checkbox"
-              value="javascript"
-              id="checkbox"
-            />
-            <label className="form-check-label">JavaScript</label>
-          </div>
-          <div className="form-check">
-            <input
-              onChange={handleInputChange}
-              name="languages"
-              className="form-check-input"
-              type="checkbox"
-              value="java"
-              id="checkbox"
-            />
-            <label className="form-check-label">Java</label>
-          </div>
-          <div className="form-check">
-            <input
-              onChange={handleInputChange}
-              name="languages"
-              className="form-check-input"
-              type="checkbox"
-              value="c"
-              id="checkbox"
-            />
-            <label className="form-check-label">C</label>
-          </div>
-          <div className="form-check">
-            <input
-              onChange={handleInputChange}
-              name="languages"
-              className="form-check-input"
-              type="checkbox"
-              value="c++"
-              id="checkbox"
-            />
-            <label className="form-check-label">C++</label>
-          </div>
-          <div className="form-check">
-            <input
-              onChange={handleInputChange}
-              name="languages"
-              className="form-check-input"
-              type="checkbox"
-              value="python"
-              id="checkbox"
-            />
-            <label className="form-check-label">Python</label>
-          </div>
-          <div className="form-check">
-            <input
-              onChange={handleInputChange}
-              name="languages"
-              className="form-check-input"
-              type="checkbox"
-              value="ruby"
-              id="checkbox"
-            />
-            <label className="form-check-label">Ruby</label>
-          </div>
-          <div className="form-check">
-            <input
-              onChange={handleInputChange}
-              name="languages"
-              className="form-check-input"
-              type="checkbox"
-              value="php"
-              id="checkbox"
-            />
-            <label className="form-check-label">PHP</label>
-          </div>
+
+          <label>Select your primary language</label>
+          <select className="form-control"name="language" value={formObject.language}>
+            <option onChange={handleInputChange}  value='JavaScript'>JavaScript</option>
+            <option onChange={handleInputChange}  value='Java'>Java</option>
+            <option onChange={handleInputChange} value='C' >C</option>
+            <option onChange={handleInputChange}  value='C++'>C++</option>
+            <option onChange={handleInputChange} value='PHP' >PHP</option>
+            <option onChange={handleInputChange}  value='Python' >Python</option>
+            <option onChange={handleInputChange}  value='Ruby'>Ruby</option>
+            <option onChange={handleInputChange} value="Other">Other</option>
+          </select>
+
         </div>
         <div className="form-group">
           <label>Tell us a little bit about yourself</label>
-          <textarea className="form-control" id="aboutMe" rows="3"></textarea>
+          <textarea onChange={handleInputChange} name="profile" className="form-control" id="aboutMe" rows="3"></textarea>
         </div>
       </form>
       <button
