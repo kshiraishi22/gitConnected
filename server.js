@@ -40,7 +40,7 @@ if (app.get("env") === "production") {
 app.use(userInViews());
 
 app.use(express.urlencoded({ extended: true })); //handle post requests
-app.use(express.json);
+app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build")); //serve static directory when deployed
 }

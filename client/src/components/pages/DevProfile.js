@@ -1,7 +1,15 @@
 import React from "react";
-import { Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import AppliedList from "../developer/AppliedList";
+import AppliedTable from "../developer/AppliedTable";
+import data from "../../data"
 
-function DevProfile() {
+
+const columns = [
+  {id: 1, label: "Job Name"},
+]
+
+function DevProfile(props) {
   return (
     <>
     <div className='container'>
@@ -13,40 +21,36 @@ function DevProfile() {
     </div>
     <div className="container">
       <div className="row">
-        <div className="col-4">
-          <div class="card mb-4">
-            <div class="card-body">
-              <h2 class="card-title">About Me</h2>
+        <div className="col-3">
+          <div className="card mb-4">
+            <div className="card-body">
+              <h2 className="card-title">About Me</h2>
               <img src="" />
-              <p class="card-text">First Name:</p>
-              <p class="card-text">Last Name:</p>
-              <p class="card-text">Email address:</p>
-              <p class="card-text">Type of Developer:</p>
-              <p class="card-text">Type of Employment:</p>
-              <p class="card-text">Primary Languages:</p>
-              <p class="card-text">Summary:</p>
+              <p className="card-text">First Name:</p>
+              <p className="card-text">Last Name:</p>
+              <p className="card-text">Email address:</p>
+              <p className="card-text">Type of Developer:</p>
+              <p className="card-text">Type of Employment:</p>
+              <p className="card-text">Primary Languages:</p>
+              <p className="card-text">Summary:</p>
             </div>
           </div>
         </div>
-        <div className="col-8">
-          <div class="card mb-4">
-            <div class="card-body">  
-              <h2 class="card-title">Applied Jobs</h2>
-              <li class="card-text">Jr. Web Developer </li>
-              <li class="card-text">"React Developer </li>
-              <li class="card-text">"UI/UX Developer </li>
+        <div className="col-3">
+          <div className="card mb-4">
+            <div className="card-body">  
+              <h2 className="card-title">Applied Jobs</h2>
+                <AppliedTable columns={columns} data={data} />
             </div>
           </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="card-title">Jr. Web Developer</h2>
-              <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-              <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-              <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <div className="col-6">
+          <div className="card mb-4">
+            <div className="card-body">
+              <Route
+                exact path={`${props.match.url}/:id`}
+                render={(props) => <AppliedList {...props} />}
+                />
             </div>
           </div>  
         </div>
