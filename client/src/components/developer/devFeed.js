@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
+
 import { withRouter } from "react-router";
+
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import JobCard from "./jobCard";
 import Container from "../Container";
 import Personal from "./Personal";
 import JobDetails from "./JobDetails";
+
+
+    
 import API from "../../utils/API";
 
 function DevFeed() {
@@ -76,6 +81,7 @@ function DevFeed() {
       </Container>
     </>
   );
+
 }
 
 export default withRouter(DevFeed);
