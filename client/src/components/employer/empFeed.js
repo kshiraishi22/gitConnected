@@ -5,22 +5,22 @@ import DevCard from "./devCard";
 import Container from "../Container";
 import EmpPersonal from "./empPersonal";
 import DevDetails from "./devDetails";
-// import API from "../utils/API"
+import API from "../../utils/API"
 
 function EmpFeed() {
-    // const [jobList, setJobList] = useState([]);
+    const [devList, setDevList] = useState([]);
 
-    // useEffect(() =>{
-    //     loadJobs()
-    // }, [])
+    useEffect(() =>{
+        loadDevs()
+    }, [])
     
-    // function loadJobs(){
-    //     console.log("loading")
-    //     API.getAllJobs()
-    //     .then(res =>
-    //         setJobList(res.data))
-    //         .catch(err => console.log(err))
-    // }
+    function loadDevs(){
+        console.log("loading")
+        API.getAllDevs()
+        .then(data =>
+            setDevList(data.data))
+            .catch(err => console.log(err))
+    }
     
         return (
             <>
@@ -36,8 +36,8 @@ function EmpFeed() {
                 
               
                     <div className="col-5" style= {{backgroundColor: "grey", height: "500px", overflowY:"scroll"}}>
-                        <DevCard />
-                       
+                        {devList.map(dev =>(<DevCard data={dev} key={dev._id}/>
+                        ))}
                         </div>
                         
                         

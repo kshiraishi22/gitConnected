@@ -5,12 +5,12 @@ function devCard(props) {
         <>
             <div className="card" style={{marginTop: "5px"}}>
                 <div className="card-header">
-                    Developer Name
+                    Developer Name: {props.data.firstName} {props.data.lastName}
                 </div>
                 <div className="card-body">
-                    <p className="card-text">Developer Type</p>
-                    <p className="card-text">Languages</p>
-                    <p className="card-text">Employment Type Seeking</p>
+                    <p className="card-text">Developer Type: {props.data.devType}</p>
+                    <p className="card-text">Languages {props.data.languages}</p>
+                    <p className="card-text">Employment Type Seeking: {props.data.empType}</p>
                     <a href="#" className="btn btn-primary">Details</a>
                 </div>
             </div>
