@@ -13,8 +13,8 @@ function JobCard(props) {
     return (
      
         <>
-          {props.data.map(data =>(
-            <div className="card" style={{marginTop: "5px", padding: "5px"}}>
+          
+<div className="card" style={{marginTop: "5px", padding: "5px"}}>
               
                
             <div className="card-headers" key={data.title}>
@@ -23,7 +23,7 @@ function JobCard(props) {
               
                  <div className="card-body">
 
-
+            
                     <h5 className="card-title">Title:{data.title} </h5>
                 <p className="card-text">Position: {data.position}</p>
                 <p className="card-text">Salary: {data.salary}</p>
@@ -40,7 +40,7 @@ function JobCard(props) {
               
             </div>
            
-           ))}  
+            
         </>
     )
 }

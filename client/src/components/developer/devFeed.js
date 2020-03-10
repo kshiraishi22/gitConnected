@@ -27,13 +27,13 @@ function DevFeed(props) {
     // }
     
 
-        function profileSubmit(e){
-        e.preventDefault()
-        console.log("Hi")
-        const area = this
-        console.log(area)
-        // area.props.history.push("/feed/emp")
-    }
+    //     function profileSubmit(e){
+    //     e.preventDefault()
+    //     console.log("Hi")
+    //     const area = this
+    //     console.log(area)
+    //     // area.props.history.push("/feed/emp")
+    // }
         return (
             <>
             <Container>
@@ -42,6 +42,7 @@ function DevFeed(props) {
                     <Navbar />
                     </div>
                 </div>
+
                 <div className="row">
                     <div className="col-12">
                     <Footer />
@@ -51,7 +52,7 @@ function DevFeed(props) {
               
                 <div className="row">
                 
-                <div className="col-2" style ={{backgroundColor: "blue",height: "500px", position: "relative"}}>
+                    <div className="col-2" style ={{backgroundColor: "blue",height: "500px", position: "relative"}}>
                     <Personal 
                     
                     // profileSubmit= {profileSubmit.bind(this)}
@@ -60,22 +61,27 @@ function DevFeed(props) {
                 
               
                     <div className="col-5" style= {{backgroundColor: "grey", height: "500px", overflowY:"scroll"}}>
-                        <JobCard data={JobSeed} />
+                    {jobList.map(job=>(
+                    <JobCard data={job} key={job._id}></JobCard>
+                    ))}
+                    </div>
+
                        
-                        </div>
+                        
                         
                         
                     <div className="col-5" style= {{height: "500px"}}>
-                        {/* <JobDetails data={JobSeed} /> */}
+                        <JobDetails />
                         
-                        <Route 
-                exact path={`${props.match.url}/:id`}
-        render={(props) => <JobDetails {...props} /> } />
+                        {/* <Route 
+                        exact path={`${props.match.url}/:id`}
+                        render={(props) => <JobDetails {...props} /> } /> */}
 
 
                     </div>
                     
                 </div>
+              
               </Container> 
             </>
         )
