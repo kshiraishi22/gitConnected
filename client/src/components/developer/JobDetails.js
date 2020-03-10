@@ -3,12 +3,12 @@ import React from "react";
 function jobDetails(props){
     return(
         <div className="card" style={{padding: "5px"}}>
-           {props.data.map(data =>(
+           
                
-            <div className="card-headers" key={data.title}>
-                Company Name{data.title}
+            <div className="card-headers" >
+                Company Name
                 </div>
-           ))}
+           
                 
             
           
