@@ -16,11 +16,9 @@ function DevCreateAccount() {
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
-    console.log(formObject);
   }
   function handleDropDownChange(event) {
     const { name, value } = event.target;
-    console.log(name + "   " + value);
     setFormObject({ ...formObject, [name]: value });
   }
 
@@ -35,25 +33,21 @@ function DevCreateAccount() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    validateEmail(formObject.emailAddress);
     if (
-      formObject.firstName &&
-      formObject.lastName &&
-      formObject.emailAddress
+      !formObject.firstName &&
+      !formObject.lastName &&
+      !formObject.emailAddress
     ) {
-      API.createDev({
-        firstName: formObject.firstName,
-        lastName: formObject.lastName,
-        emailAddress: formObject.emailAddress,
-        location: formObject.location,
-        devType: formObject.devType,
-        empType: formObject.empType,
-        languages: formObject.languages,
-        profile: formObject.profile
-      })
-        .then(() => console.log(formObject))
-        .catch(err => console.log(err));
+      alert("Required fields must be filled out!");
+      return;
     }
+    if (validateEmail(formObject.emailAddress) === false) {
+      return;
+    }
+    console.log("everything valid");
+    API.createDev(formObject)
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   }
 
   return (
@@ -74,7 +68,6 @@ function DevCreateAccount() {
             name="firstName"
             type="text"
             className="form-control"
-            id="firstName"
             placeholder="First Name (Required)"
           />
         </div>
@@ -84,7 +77,6 @@ function DevCreateAccount() {
             name="lastName"
             type="text"
             className="form-control"
-            id="lastName"
             placeholder="Last Name (Required)"
           />
         </div>
@@ -95,7 +87,6 @@ function DevCreateAccount() {
             name="emailAddress"
             type="email"
             className="form-control"
-            id="exampleFormControlInput1"
             placeholder="name@example.com (Required)"
           />
         </div>
@@ -180,7 +171,6 @@ function DevCreateAccount() {
             onChange={handleInputChange}
             name="profile"
             className="form-control"
-            id="aboutMe"
             rows="3"
           ></textarea>
         </div>
