@@ -7,8 +7,8 @@ import JobCard from "./jobCard";
 import Container from "../Container";
 import Personal from "./Personal";
 import JobDetails from "./JobDetails";
-// import API from "../../utils/API"
-import JobSeed from "../../scripts/seedDB"
+import API from "../../utils/API"
+// import JobSeed from "../../../../scripts/seedDB"
 
 
 function DevFeed(props) {
