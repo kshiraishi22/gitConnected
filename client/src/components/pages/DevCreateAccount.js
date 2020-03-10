@@ -3,14 +3,14 @@ import API from "../../utils/API";
 
 function DevCreateAccount() {
   const [formObject, setFormObject] = useState({
-    firstName:"",
-    lastName:"",
-    emailAddress:"",
-    devType:"",
-    empType:"",
-    language:"",
-    location:"",
-    profile:"",
+    firstName: "",
+    lastName: "",
+    emailAddress: "",
+    devType: "Full-Stack",
+    empType: "Full-Time",
+    language: "JavaScript",
+    location: "",
+    profile: ""
   });
 
   function handleInputChange(event) {
@@ -25,11 +25,7 @@ function DevCreateAccount() {
   }
 
   function validateEmail(mail) {
-    if (
-      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-        formObject.emailAddress.value
-      )
-    ) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
       return true;
     } else {
       alert("You have entered an invalid email address!");
@@ -59,7 +55,7 @@ function DevCreateAccount() {
         .catch(err => console.log(err));
     }
   }
-  
+
   return (
     <div className="container">
       <div className="jumbotron jumbotron-fluid">
@@ -102,7 +98,6 @@ function DevCreateAccount() {
             id="exampleFormControlInput1"
             placeholder="name@example.com (Required)"
           />
-
         </div>
         <div className="form-group">
           <label>Type of Developer</label>
@@ -127,8 +122,8 @@ function DevCreateAccount() {
           <label>Type of Employment</label>
           <select
             className="form-control"
-            value={formObject.empType}
             name="empType"
+            value={formObject.empType}
             onChange={handleDropDownChange}
           >
             <option name="empType" value="fullTime">
@@ -140,29 +135,54 @@ function DevCreateAccount() {
             <option name="empType" value="contract">
               Contract
             </option>
-            <option name="empType" value="volunteer" >
+            <option name="empType" value="volunteer">
               Volunteer
             </option>
           </select>
         </div>
         <div className="form-group">
-
           <label>Select your primary language</label>
-          <select className="form-control"name="language" value={formObject.language}>
-            <option onChange={handleInputChange}  value='JavaScript'>JavaScript</option>
-            <option onChange={handleInputChange}  value='Java'>Java</option>
-            <option onChange={handleInputChange} value='C' >C</option>
-            <option onChange={handleInputChange}  value='C++'>C++</option>
-            <option onChange={handleInputChange} value='PHP' >PHP</option>
-            <option onChange={handleInputChange}  value='Python' >Python</option>
-            <option onChange={handleInputChange}  value='Ruby'>Ruby</option>
-            <option onChange={handleInputChange} value="Other">Other</option>
+          <select
+            className="form-control"
+            name="language"
+            value={formObject.language}
+            onChange={handleDropDownChange}
+          >
+            <option name="language" value="JavaScript">
+              JavaScript
+            </option>
+            <option name="language" value="Java">
+              Java
+            </option>
+            <option name="language" value="C">
+              C
+            </option>
+            <option name="language" value="C++">
+              C++
+            </option>
+            <option name="language" value="PHP">
+              PHP
+            </option>
+            <option name="language" value="Python">
+              Python
+            </option>
+            <option name="language" value="Ruby">
+              Ruby
+            </option>
+            <option name="language" value="Other">
+              Other
+            </option>
           </select>
-
         </div>
         <div className="form-group">
           <label>Tell us a little bit about yourself</label>
-          <textarea onChange={handleInputChange} name="profile" className="form-control" id="aboutMe" rows="3"></textarea>
+          <textarea
+            onChange={handleInputChange}
+            name="profile"
+            className="form-control"
+            id="aboutMe"
+            rows="3"
+          ></textarea>
         </div>
       </form>
       <button
