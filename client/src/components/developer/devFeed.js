@@ -15,16 +15,15 @@ function DevFeed(props) {
     
     const [jobList, setJobList] = useState([]);
 
-    // useEffect(() =>{
-    //     loadJobs()
-    // }, [])
+    useEffect(() =>{
+        loadJobs()
+    }, [])
     
-    // function loadJobs(){
-    //     API.getAllJobs()
-    //     .then(res =>{
-    //         console.log(res)
-    //     })
-    // }
+    function loadJobs() {
+        API.getAllJobs()
+          .then(data => setJobList(data.data))
+          .catch(err => console.log(err));
+      }
     
 
     //     function profileSubmit(e){
