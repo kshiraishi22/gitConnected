@@ -224,6 +224,42 @@ const developerSeed = [
     languages: "python",
     location: "Mid-West",
     profile: "I write code"
+  },
+  {
+    userName: "ddd",
+    password: "111",
+    firstName: "Amanda",
+    lastName: "Hugginkiss",
+    emailAddress: "Amanda.Hugginkiss@mail.com",
+    devType: "fullStack",
+    empType: "fullTime",
+    languages: "python",
+    location: "Mid-West",
+    profile: "I write code"
+  },
+  {
+    userName: "eee",
+    password: "222",
+    firstName: "Richard",
+    lastName: "Banger",
+    emailAddress: "Richard.Banger@mail.com",
+    devType: "frontEnd",
+    empType: "fullTime",
+    languages: "javascript",
+    location: "Mid-West",
+    profile: "I write code"
+  },
+  {
+    userName: "fff",
+    password: "343",
+    firstName: "Emilio",
+    lastName: "Esteves",
+    emailAddress: "Emelio.Emelio@mail.com",
+    devType: "fullStack",
+    empType: "fullTime",
+    languages: "python",
+    location: "Mid-West",
+    profile: "I write code"
   }
 ];
 

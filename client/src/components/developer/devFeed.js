@@ -55,10 +55,7 @@ function DevFeed() {
               position: "relative"
             }}
           >
-            <Personal
-
-            // profileSubmit= {profileSubmit.bind(this)}
-            />
+            <Personal />
           </div>
 
           <div
