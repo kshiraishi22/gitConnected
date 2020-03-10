@@ -14,7 +14,7 @@ import API from "../../utils/API"
 function DevFeed(props) {
     
     const [jobList, setJobList] = useState([]);
-
+    console.log(jobList)
     useEffect(() =>{
         loadJobs()
     }, [])
