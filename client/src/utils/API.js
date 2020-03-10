@@ -23,8 +23,8 @@ export default {
 
     //  Developer Collection
     getAllEmployers :   function(){return axios.get("/api/employer");},
-    getEmployer     :   function(id){axios.get("/api/employer/"+id);},
-    updateEmployer  :   function(id, updateData){axios.put("/api/employer/"+id, updateData);},
-    deleteEmployer  :   function(id){axios.delete("/api/employer/"+id);},
-    createEmployer  :   function(empData){axios.post("/api/employer" , empData);},
+    getEmployer     :   function(id){return axios.get("/api/employer/"+id);},
+    updateEmployer  :   function(id, updateData){return axios.put("/api/employer/"+id, updateData);},
+    deleteEmployer  :   function(id){return axios.delete("/api/employer/"+id);},
+    createEmployer  :   function(empData){return axios.post("/api/employer", empData);}
 };
