@@ -16,7 +16,7 @@ function Personal(props) {
     })
 
     useEffect(()=>{
-        loadUser(props);
+        loadUser(props.user);
     }, []);
     function loadUser(id){
         API.getDev(id).then((data)=>{

@@ -52,7 +52,7 @@ function DevFeed(props) {
               position: "relative"
             }}
           >
-            <Personal user={props} />
+            <Personal user={"5e69316dc528fd5c40dbace2"} />
           </div>
 
           <div
