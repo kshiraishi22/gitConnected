@@ -3,37 +3,40 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from './components/pages/Home';
 import EmpCreateAccount from './components/pages/EmpCreateAccount';
 import DevCreateAccount from './components/pages/DevCreateAccount';
-// import DevSimple from './components/Container';
 import DevFeed from "../src/components/developer/devFeed"
 import DevProfile from "./components/pages/DevProfile"
 import EmpProfile from "./components/pages/EmpProfile"
-
+import SelectForm from './components/pages/SelectForm'
 import EmpFeed from "../src/components/employer/empFeed";
 import PostJob from "./components/pages/PostJob"
+import PrivateRoute from "./components/PrivateRoute";
 
 
 
 import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
-  // const { loading } = useAuth0();
+  const { loading } = useAuth0();
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
 
   return (
 
     <Router> 
       <div>
-        <Route path="/feed/dev/" component ={DevFeed} />
-        <Route path="/feed/emp" component ={EmpFeed} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/dev-create-account" component={DevCreateAccount} />
-        <Route exact path="/emp-create-account" component={EmpCreateAccount} />
-        <Route path="/profile/dev" component={DevProfile} />
-        <Route exact path="/profile/emp" component={EmpProfile} />
-        <Route exact path="/postjob" component={PostJob} />
+        <PrivateRoute path="/feed/dev/" component ={DevFeed} />
+        <PrivateRoute path="/feed/emp" component ={EmpFeed} />
+        <PrivateRoute exact path="/dev-create-account" component={DevCreateAccount} />
+        <PrivateRoute exact path="/emp-create-account" component={EmpCreateAccount} />
+        <PrivateRoute path="/profile/dev" component={DevProfile} />
+        <PrivateRoute exact path="/profile/emp" component={EmpProfile} />
+        <PrivateRoute exact path="/postjob" component={PostJob} />
+        <PrivateRoute exact path='/selectform' component={SelectForm} />
+        
       </div>
     </Router>
    
