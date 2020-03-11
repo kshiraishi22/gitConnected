@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-
 import { Link, Route } from "react-router-dom"
-import EmpCreateAccount from "../pages/EmpCreateAccount"
+import EmpProfile from "../pages/EmpCreateAccount"
 import API from "../../utils/API";
+
 function EmpPersonal(props) {
-    const [userState, setUserState]=useState({
+    const [userState, setUserState] = useState({
        companyName: "",
        email: "",
        phone: "",
        location: "",
        about: ""
-    })
+    });
+
     useEffect(()=>{
-        loadCompany()
-    })
+        loadCompany("5e69316dc528fd5c40dbace1")
+    });
 
     function loadCompany(id){
         API.getEmployer(id)
@@ -41,12 +42,12 @@ function EmpPersonal(props) {
             <div className="card" style={{ position: "relative", bottom: "5px" }}>
 
 
-                <Link to="/emp-create-account" role="button" className="btn btn-secondary btn-block" style={{       position: "absolute", bottom: "5px" }}>
-                    Update Profile
+                <Link to="/profile/emp" role="button" className="btn btn-secondary btn-block" style={{       position: "absolute", bottom: "5px" }}>
+                    View Profile
                     </Link>
-                <Route exact path="/emp-create-account" component={EmpCreateAccount} />
+                <Route exact path="/emp-create-account" component={EmpProfile} />
                 <br />
-                <button type="button" class="btn btn-secondary btn-block" style={{ marginTop: "0", position: "absolute", bottom: "50px" }}>View Posted Jobs</button>
+                {/* <button type="button" class="btn btn-secondary btn-block" style={{ marginTop: "0", position: "absolute", bottom: "50px" }}>View Posted Jobs</button> */}
             </div>
             {/* <button type="button" class="btn btn-primary" style={{position: "absolute", bottom: "5px"}}>Update Profile</button> */}
         </div>
