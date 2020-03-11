@@ -1,11 +1,11 @@
-.DevCreateImage {
+.PostJobImage {
   height: 900px;
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
-.DevCreateImage::after {
+.PostJobImage::after {
   content: "";
   display: block;
   opacity: .4;
@@ -17,16 +17,16 @@
   background: black;
 }
 
-.DevCreateImage * {
+.PostJobImage * {
   position: relative;
   z-index: 2;
 }
 
-.DevCreateImage h1, .DevCreateImage h2 {
+.PostJobImage h1, .PostJobImage h2 {
   color: white;
 }
 
-.DevCreateImage h1 {
+.PostJobImage h1 {
   font-size: 60px;
   padding-top: 50px;
   margin-top: 0;
@@ -41,5 +41,7 @@
 }
 
 label {
-  color: white
+  color: white;
+  position: absolute;
+  
 }
