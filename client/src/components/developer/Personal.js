@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Route } from "react-router-dom"
 import DevCreateAccount from "../pages/DevCreateAccount"
 import API from "../../utils/API";
 
 function Personal(props) {
-    const [user, setUser] = userState({
+    const [user, setUser] = useState({
         firstName: "",
         lastName:"",
         emailAddress:"",
@@ -16,7 +16,7 @@ function Personal(props) {
     })
 
     useEffect(()=>{
-        loadUser(props);
+        loadUser(props.user);
     }, []);
     function loadUser(id){
         API.getDev(id).then((data)=>{
