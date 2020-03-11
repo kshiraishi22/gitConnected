@@ -1,8 +1,14 @@
 import React from "react";
 import HomeImage from "../Home/HomeImage";
 import building from "../Home/Images/building_photo.jpeg";
+import React, { useState } from "react";
+import { Redirect } from 'react-router-dom';
+import { useAuth0 } from "../../react-auth0-spa";
 
 function Home() {
+
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   return (
     <div>
       <HomeImage backgroundImage={building}>
@@ -15,7 +21,13 @@ function Home() {
           <a className="list-group-item btn btn-light" type='button' href='/dev-create-account'>I'm a developer!</a>
           <a className="list-group-item btn btn-light" type='button' href='/emp-create-account'>I need a developer!</a>
         </ul>
-        {/* <button className='btn btn-primary'>Login</button> */}
+      <div>
+      {!isAuthenticated && (
+        <button className='btn btn-light' onClick={() => loginWithRedirect({})}>Log in</button>
+      )}
+
+      {isAuthenticated && <button className='btn btn-light' onClick={() => logout()}>Log out</button>}
+    </div>
     </div>
   );
 }

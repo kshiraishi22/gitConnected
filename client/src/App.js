@@ -16,11 +16,11 @@ import PostJob from "./components/pages/PostJob"
 import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
-  const { loading } = useAuth0();
+  // const { loading } = useAuth0();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
 
