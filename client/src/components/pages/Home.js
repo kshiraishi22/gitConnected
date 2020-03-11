@@ -3,15 +3,12 @@ import building from "../Styling/Images/building_photo.jpeg";
 import React, { useState, useEffect } from "react";
 
 function Home() {
+  const devID = "5e69316dc528fd5c40dbace2";
+  const empID = "5e69316dc528fd5c40dbace1";
 
-  
   const [admin, setAdmin] = useState({
     id: "Mongoose id"
-  })
-
-  useEffect(()=>{
-
-  })
+  });
 
   return (
     <div className="container">

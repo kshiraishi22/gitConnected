@@ -7,27 +7,26 @@ import Container from "../Container";
 import Personal from "./Personal";
 import JobDetails from "./JobDetails";    
 import API from "../../utils/API";
-import { PromiseProvider } from "mongoose";
 
 function DevFeed(props) {
   const [jobList, setJobList]=useState([]);
   const [activeJob, setActiveJob]=useState({})
+
   useEffect(() => {
     loadJobs();
   }, []);
 
+  function loadJobs() {
+    API.getAllJobs()
+      .then(data => setJobList(data.data))
+      .catch(err => console.log(err));
+  }
   const populateActiveJob=(id)=>{
     jobList.map( job=> {
       if( job._id === id ){
         setActiveJob(job)
       }
     })
-  }
-
-  function loadJobs() {
-    API.getAllJobs()
-      .then(data => setJobList(data.data))
-      .catch(err => console.log(err));
   }
 
    return (
@@ -53,7 +52,7 @@ function DevFeed(props) {
               position: "relative"
             }}
           >
-            <Personal />
+            <Personal user={props} />
           </div>
 
           <div
