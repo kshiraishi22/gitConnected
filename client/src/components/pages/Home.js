@@ -25,7 +25,8 @@ function Home() {
 
       {isAuthenticated && <button className='btn btn-light' onClick={() => logout()}>Log out</button>}
     </div>
-    </div>
+  </div>
+  </div>
   );
 }
 
