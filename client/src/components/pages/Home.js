@@ -1,6 +1,5 @@
-import React from "react";
-import HomeImage from "../Home/HomeImage";
-import building from "../Home/Images/building_photo.jpeg";
+import HomeImage from "../Styling/HomeImage";
+import building from "../Styling/Images/building_photo.jpeg";
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { useAuth0 } from "../../react-auth0-spa";
