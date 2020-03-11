@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import desk from "../Styling/Images/empProfileImage.jpg";
 import EmpProfileImage from "../Styling/DevProfileImage";
 import "../Styling/EmpProfileImage.css";
