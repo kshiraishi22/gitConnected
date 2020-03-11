@@ -8,7 +8,9 @@ const PrivateRoute = ({ component: Component, path, ...rest }) => {
   const { loading, isAuthenticated, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
-    if (loading || isAuthenticated) {
+    console.log(loading)
+    console.log(isAuthenticated)
+    if (!isAuthenticated) {
       return;
     }
     const fn = async () => {
