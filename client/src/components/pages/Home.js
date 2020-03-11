@@ -1,8 +1,10 @@
 import HomeImage from "../Styling/HomeImage";
 import building from "../Styling/Images/building_photo.jpeg";
-import { Button } from 'reactstrap';
 import React, { useState, useEffect } from "react";
-import API from '../../utils/API'
+import { Button } from 'reactstrap';
+import { Link, Route } from "react-router-dom"
+import DevFeed from "../developer/devFeed";
+import EmpFeed from "../employer/empFeed";
 
 function Home() {
   const devID = "5e6932d2b667b2175f52f9f0"
