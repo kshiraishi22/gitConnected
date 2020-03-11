@@ -28,5 +28,3 @@ ReactDOM.render(
   </Auth0Provider>,
   document.getElementById("root")
 );
-
-serviceWorker.register();
