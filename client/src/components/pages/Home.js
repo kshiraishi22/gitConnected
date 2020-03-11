@@ -25,7 +25,6 @@ function Home() {
     console.log(admin)
   }
 
-
   return (
     <>
       <HomeImage backgroundImage={building}>
