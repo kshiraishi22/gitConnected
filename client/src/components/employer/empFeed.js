@@ -34,8 +34,7 @@ function EmpFeed(props) {
     }
     
         return (
-            <>
-            {/* <Router> */}
+            <>            
             <Container>
                 <Navbar />
                 <Footer />
@@ -47,7 +46,7 @@ function EmpFeed(props) {
                     </div>
                 
               
-                    <div className="col-5" style= {{backgroundColor: "grey", height: "500px", overflowY:"scroll"}}>
+                    <div className="col-5" style= {{position: "relative", backgroundColor: "grey", height: "500px", overflowY:"scroll"}}>
                         {devList.map(dev =>(
                             <DevCard setActive={populateActiveDev} url={props.match.url} data={dev} key={dev._id}/>
                         ))}
@@ -62,8 +61,7 @@ function EmpFeed(props) {
                     </div>
                     
                 </div>
-                </Container>
-              {/* </Router> */}
+                </Container>              
             </>
         )
     

@@ -1,16 +1,13 @@
-import React ,{useState} from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import DevDetails from "./devDetails"
+import React from "react";
+import { Link } from "react-router-dom";
+
 function DevCard(props) {
-    // state = {
-    //     selectedDev:""
-   const [selectedDev, setSelectedDev]=useState("");
+    
 
         return (
-            
             <>
 
-                <div className="card" style={{marginTop: "5px"}}>
+                <div className="card" style={{postion: "absolute", left: "57px", marginTop: "20px", width: "75%"}}>
                     <div className="card-header">
                         Developer Name: {props.data.firstName} {props.data.lastName}
                     </div>
@@ -25,21 +22,7 @@ function DevCard(props) {
                         
 
                     </div>
-                </div>
-               
-               
-               {/* <DevDetails 
-               firstName={selectedDev.firstName}
-               lastName={selectedDev.lastName}
-               email={selectedDev.emailAddress}
-               location={selectedDev.location}
-               languages={selectedDev.languages}
-               empType={selectedDev.empType}
-               profile={selectedDev.profile}
-
-               
-               /> */}
-                
+                </div>        
             </>
         )
     

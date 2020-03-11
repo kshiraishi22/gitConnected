@@ -1,6 +1,5 @@
 import React from "react";
-import JobDetails from "./JobDetails";
-import { Link, Route } from "react-router-dom";
+import { Link } from " react-router-dom";
 // import nextId from "react-id-generator";
 
 
