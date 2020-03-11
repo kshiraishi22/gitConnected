@@ -6,7 +6,6 @@ import { Link, Route } from "react-router-dom"
 import DevFeed from "../developer/devFeed";
 import EmpFeed from "../employer/empFeed";
 
-function Home() {
   const devID = "5e6932d2b667b2175f52f9f0"
   const empID = "5e6932d2b667b2175f52f9ef"
   

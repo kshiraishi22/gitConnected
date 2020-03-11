@@ -1,18 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Link, Route } from "react-router-dom"
 import EmpCreateAccount from "../pages/EmpCreateAccount"
+import API from "../../utils/API";
 function empPersonal(props) {
+    const [userState, setUserState]=useState({
+       companyName: "",
+       email: "",
+       phone: "",
+       location: "",
+       about: ""
+    })
+    useEffect(()=>{
+        loadCompany()
+    })
+
+    function loadCompany(){
+        API.getEmployer(id)
+        .then(data=>{
+            setUserState(data.data)
+        }).catch(err=> console.log (err))
+    }
     return (
         <div className="card" style={{ height: "100%", width: "100%", margin: "5%", position: "relative" }}>
             <div className="card-body">
-                <div className="card-headers"><h3>Company Name</h3></div>
-
+                <div className="card-headers">
+                    <h2>{userState.companyName}</h2>
+                </div>
+                <p>{userState.about}</p>
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>{userState.location}
+                    </li>
+                    <li>{userState.phone}</li>
+                    <li>{userState.email}</li>
+                </ul>
                 <br />
-                {/* <div class="btn-group" role="group" aria-label="Basic example" style={{position: "absolute", bottom: "5px"}}> */}
-
-                {/* </div> */}
-                {/* <button type="button" class="btn btn-primary" style={{position: "absolute", bottom: "50px"}}>See Jobs posted</button> */}
+               
             </div>
             <div className="card" style={{ position: "relative", bottom: "5px" }}>
 
