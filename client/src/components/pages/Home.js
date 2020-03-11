@@ -1,5 +1,6 @@
 import HomeImage from "../Styling/HomeImage";
 import building from "../Styling/Images/building_photo.jpeg";
+import { Button } from 'reactstrap';
 import React, { useState, useEffect } from "react";
 import API from '../../utils/API'
 
@@ -24,20 +25,22 @@ function Home() {
 
 
   return (
-    <div className="container">
+    <>
       <HomeImage backgroundImage={building}>
-        <h1 className="display-4">Welcome to Git Connected</h1>
-        <p className="lead">
-          A place for developers and employers to get connected. Yeehaw.
-        </p>
-        <hr className="my-4" />
+          <h1 className="display-4">Welcome to Git Connected</h1>
+          <h2 className="lead">
+            A place for developers and employers to get connected. Yeehaw!!
+          </h2>
+        <div className="buttons">
+          <Link to="/feed/dev"><Button name="id" onClick={devClick} color="primary">Log in as Admin Developer</Button>{" "}
+          </Link>
+            <Route exact path="/feed/dev" component={DevFeed} />
+          <Link to="/feed/emp"> <Button name="id" onClick={empClick}color="success">Log in as Admin Employer</Button>
+          </Link>
+            <Route exact path="/feed/emp" component={EmpFeed} />
+        </div>
       </HomeImage>
-
-      <div>
-        <button name='id' onClick={devClick}>Log in Admin Developer</button>
-        <button name='id' onClick={empClick}>Log in Admin Employer</button>
-      </div>
-    </div>
+    </>
   );
 }
 
