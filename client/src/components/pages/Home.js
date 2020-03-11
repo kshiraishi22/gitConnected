@@ -22,9 +22,11 @@ function Home() {
           <button onClick={loginWithRedirect}>Log in</button>
         )}
 
-        {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
-      </div>
+      {isAuthenticated && <button className='btn btn-light' onClick={() => logout()}>Log out</button>}
     </div>
+  </div>
+  </div>
+
   );
 }
 

@@ -63,7 +63,7 @@ function DevCreateAccount() {
         <form>
           <div className="accountForm">
             <div className="form-group">
-              <input
+              <input 
                 onChange={handleInputChange}
                 name="firstName"
                 type="text"
@@ -174,24 +174,22 @@ function DevCreateAccount() {
                 rows="3"
               ></textarea>
             </div>
+            <button
+              onChange={handleInputChange}
+              name="profile"
+              type="button"
+              className="btn btn-success"
+              disabled={
+                !(
+                  formObject.firstName &&
+                  formObject.lastName &&
+                  formObject.emailAddress
+                )
+              }
+              onClick={handleFormSubmit}>Submit
+            </button>
           </div>
         </form>
-        <button
-          onChange={handleInputChange}
-          name="profile"
-          type="button"
-          className="btn btn-success"
-          disabled={
-            !(
-              formObject.firstName &&
-              formObject.lastName &&
-              formObject.emailAddress
-            )
-          }
-          onClick={handleFormSubmit}
-        >
-          Submit
-        </button>
       </DevCreateImage>
     </div>
   );

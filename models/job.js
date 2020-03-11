@@ -11,7 +11,7 @@ const jobSchema = new Schema({
     type: String,
     trim: true,
     required: true,
-    enum: ["Front End Developer", "Back End Developer", "Full Stack Developer"]
+    // enum: ["Front End Developer", "Back End Developer", "Full Stack Developer"]
   },
   empType:{
     type: String,

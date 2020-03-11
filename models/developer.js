@@ -7,11 +7,10 @@ const developerSchema = new Schema({
   userName: {
     type: String,
     trim: true,
-    required: true
   },
   password: {
     type: String,
-    required: true
+    trim:true
   },
   firstName: {
     type: String,
@@ -31,7 +30,6 @@ const developerSchema = new Schema({
   devType:{
     type: String,
     trim: true,
-    required: true,
     default: "fullStack"
   },
   empType:{
@@ -39,12 +37,13 @@ const developerSchema = new Schema({
     trim: true,
     default: "fullTime"
   },
-  languages:[String],
+  language:{
+    type: String,
+  },
   location: {
     type: String,
-    required: true,
     trim: true,
-    enum: ["West-Coast", "East-Coast", "Mid-West"]
+    // enum: ["West-Coast", "East-Coast", "Mid-West"]
   },
   profile:{
     type: String,

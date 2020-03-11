@@ -7,11 +7,11 @@ const employerSchema = new Schema({
   userName: {
     type: String,
     trim: true,
-    required: true
+    // required: true
   },
   password: {
     type: String,
-    required: true
+    // required: true
   },
   companyName: {
     type: String,
@@ -32,7 +32,7 @@ const employerSchema = new Schema({
     type: String,
     trim: true,
     required: true,
-    enum: ["West-Coast", "East-Coast", "Mid-West"]
+    // enum: ["West-Coast", "East-Coast", "Mid-West"]
   },
   about:{
     type: String,
