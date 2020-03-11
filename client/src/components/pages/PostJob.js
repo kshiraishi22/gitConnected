@@ -33,12 +33,16 @@ function PostJob() {
   return (
     <>
       <PostJobImage backgroundImage={job}>
-        <h1 className="display-4">Post a job!</h1>
-        <h2 className="lead">
-          Employers, post a job by filling out the form below!
-        </h2>
-        <form>
-          <div className="accountForm">
+        <div className="container">
+          <div className="jumbotron jumbotron-fluid">
+            <div className="container">
+              <h1 className="display-4">Post a job!</h1>
+              <p className="lead">
+                Employers, post a job by filling out the form below!
+              </p>
+            </div>
+          </div>
+          <form>
             <div className="form-group">
               <input
                 name="companyName"
@@ -116,13 +120,15 @@ function PostJob() {
               </option>
             </select>
             </div>
-            <button
+          </form>
+          <button
             onClick={handleFormSubmit}
             type="button"
-            className="btn btn-success">Submit
-            </button>
-          </div>
-        </form>
+            className="btn btn-success"
+          >
+            Submit
+          </button>
+        </div>
       </PostJobImage>
     </>
   );
