@@ -14,11 +14,11 @@ function jobDetails(props){
           
             
             
-                <p className="card-text">Seeking: </p>
-                <p className="card-text">Job Type/Position</p>
-                <p className="card-text">Salary</p>
+                <p className="card-text">Seeking: {props.title}</p>
+                <p className="card-text">Job Type: {props.empType} Position: {props.position}</p>
+                <p className="card-text">Salary: {props.salary}</p>
                 <h5 className="card-text">Description</h5>
-                <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at ipsum justo. Praesent nisi lorem, egestas id mattis in, maximus sed purus. Vivamus porta orci ac lectus ultrices, pellentesque mattis ante ultricies. Ut placerat sapien nec erat auctor porta. Phasellus auctor metus et nibh feugiat, eget ornare lectus dapibus. Vestibulum sem tortor, hendrerit id urna tempor, dictum ornare sapien. Ut id</p>
+                <p className="card-text">{props.description}</p>
           
 
                 <br />

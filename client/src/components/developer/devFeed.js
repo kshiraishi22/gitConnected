@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
-
-import { withRouter } from "react-router";
-
+import { Route } from "react-router-dom";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import JobCard from "./jobCard";
 import Container from "../Container";
 import Personal from "./Personal";
-import JobDetails from "./JobDetails";
-
-
-    
+import JobDetails from "./JobDetails";    
 import API from "../../utils/API";
+import { PromiseProvider } from "mongoose";
 
-function DevFeed() {
-  const [jobList, setJobList] = useState([]);
+function DevFeed(props) {
+  const [jobList, setJobList]=useState([]);
+  const [activeJob, setActiveJob]=useState({})
   useEffect(() => {
     loadJobs();
   }, []);
+
+  const populateActiveJob=(id)=>{
+    jobList.map( job=> {
+      if( job._id === id ){
+        setActiveJob(job)
+      }
+    })
+  }
 
   function loadJobs() {
     API.getAllJobs()
@@ -25,14 +30,7 @@ function DevFeed() {
       .catch(err => console.log(err));
   }
 
-  function profileSubmit(e) {
-    e.preventDefault();
-    console.log("Hi");
-    const area = this;
-    console.log(area);
-    // area.props.history.push("/feed/emp")
-  }
-  return (
+   return (
     <>
       <Container>
         <div className="row">
@@ -67,12 +65,13 @@ function DevFeed() {
             }}
           >
               {jobList.map(job=>(
-                  <JobCard data={job} key={job._id}></JobCard>
+                <JobCard setActive={populateActiveJob} url={props.match.url} data={job} key={job._id} />
               ))}
           </div>
 
           <div className="col-5" style={{ height: "500px" }}>
-            <JobDetails />
+            <Route exact path={`${props.match.url}/${activeJob._id}`} render={(props) => <JobDetails {...activeJob} />} />
+            
           </div>
         </div>
       </Container>
@@ -81,4 +80,4 @@ function DevFeed() {
 
 }
 
-export default withRouter(DevFeed);
+export default (DevFeed);
