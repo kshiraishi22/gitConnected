@@ -2,9 +2,16 @@ import HomeImage from "../Styling/HomeImage";
 import building from "../Styling/Images/building_photo.jpeg";
 import React, { useState, useEffect } from "react";
 
+
 function Home() {
 
-  
+  const [loggedIn, setLoggedIn]=useState({
+    id: ""
+  });
+
+  const populateActivAdmin =(id)=>{
+    
+  }
   const [admin, setAdmin] = useState({
     id: "Mongoose id"
   })

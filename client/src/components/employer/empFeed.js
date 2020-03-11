@@ -43,7 +43,7 @@ function EmpFeed(props) {
                 <div className="row">
                 
                 <div className="col-2" style ={{backgroundColor: "blue",height: "500px", position: "relative"}}>
-                    <EmpPersonal />
+                    <EmpPersonal user={props} />
                     </div>
                 
               
