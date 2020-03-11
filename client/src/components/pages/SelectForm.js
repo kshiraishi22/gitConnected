@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
-import { useAuth0 } from "../../react-auth0-spa";
 
 function SelectForm() {
   return (

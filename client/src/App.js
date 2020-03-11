@@ -9,23 +9,14 @@ import EmpProfile from "./components/pages/EmpProfile"
 import SelectForm from './components/pages/SelectForm'
 import EmpFeed from "../src/components/employer/empFeed";
 import PostJob from "./components/pages/PostJob"
-import PrivateRoute from "./components/PrivateRoute";
-import history from "./utils/history";
 
-
-
-import { useAuth0 } from "./react-auth0-spa";
 
 function App() {
-  const { loading } = useAuth0();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
 
   return (
-    <Router history={history}>
+    <Router >
       <div>
         <Switch>
           <Route exact path="/" component={Home} />

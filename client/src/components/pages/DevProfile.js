@@ -3,8 +3,7 @@ import AppliedList from "../developer/AppliedList";
 import AppliedTable from "../developer/AppliedTable";
 import data from "../../data"
 
-import React, { Fragment } from "react";
-import { useAuth0 } from "../../react-auth0-spa";
+import React from "react";
 
 
 const columns = [
@@ -12,23 +11,9 @@ const columns = [
 ]
 
 function DevProfile(props) {
-  // const { loading, user } = useAuth0();
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-  // if (!user) {
-  //   return <div>User not found</div>
-  // }
+ 
   return (
     <div>
-    {/* <Fragment>
-      <img src={user.picture} alt="Profile" />
-
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <code>{JSON.stringify(user, null, 2)}</code>
-    </Fragment>
-     */}
     <div className='container'>
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
