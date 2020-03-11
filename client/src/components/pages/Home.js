@@ -1,17 +1,27 @@
 import HomeImage from "../Styling/HomeImage";
 import building from "../Styling/Images/building_photo.jpeg";
 import React, { useState, useEffect } from "react";
+import API from '../../utils/API'
 
 function Home() {
-
+  const devID = "5e6932d2b667b2175f52f9f0"
+  const empID = "5e6932d2b667b2175f52f9ef"
   
   const [admin, setAdmin] = useState({
     id: "Mongoose id"
   })
 
-  useEffect(()=>{
+  function devClick(event) {
+    const { name, value } = event.target;
+    setAdmin({ ...admin, [name]: devID });
+    console.log(admin)
+  }
+  function empClick(event) {
+    const { name, value } = event.target;
+    setAdmin({ ...admin, [name]: empID });
+    console.log(admin)
+  }
 
-  })
 
   return (
     <div className="container">
@@ -24,8 +34,8 @@ function Home() {
       </HomeImage>
 
       <div>
-        <button>Log in Admin Developer</button>
-        <button>Log in Admin Employer</button>
+        <button name='id' onClick={devClick}>Log in Admin Developer</button>
+        <button name='id' onClick={empClick}>Log in Admin Employer</button>
       </div>
     </div>
   );
