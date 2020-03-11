@@ -29,14 +29,14 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/" component={Home} />
-          <PrivateRoute path="/feed/dev/" component ={DevFeed} />
-          <PrivateRoute path="/feed/emp" component ={EmpFeed} />
-          <PrivateRoute exact path="/dev-create-account" component={DevCreateAccount} />
-          <PrivateRoute exact path="/emp-create-account" component={EmpCreateAccount} />
-          <PrivateRoute path="/profile/dev" component={DevProfile} />
-          <PrivateRoute exact path="/profile/emp" component={EmpProfile} />
-          <PrivateRoute exact path="/postjob" component={PostJob} />
-          <PrivateRoute exact path='/selectform' component={SelectForm} />
+          <Route path="/feed/dev/" component ={DevFeed} />
+          <Route path="/feed/emp" component ={EmpFeed} />
+          <Route exact path="/dev-create-account" component={DevCreateAccount} />
+          <Route exact path="/emp-create-account" component={EmpCreateAccount} />
+          <Route path="/profile/dev" component={DevProfile} />
+          <Route exact path="/profile/emp" component={EmpProfile} />
+          <Route exact path="/postjob" component={PostJob} />
+          <Route exact path='/selectform' component={SelectForm} />
         </Switch>
       </div>
     </Router>
