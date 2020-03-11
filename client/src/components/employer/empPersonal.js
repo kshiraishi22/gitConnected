@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, Route } from "react-router-dom"
 import EmpCreateAccount from "../pages/EmpCreateAccount"
 import API from "../../utils/API";
-function empPersonal(props) {
+function EmpPersonal(props) {
     const [userState, setUserState]=useState({
        companyName: "",
        email: "",
@@ -15,7 +15,7 @@ function empPersonal(props) {
         loadCompany()
     })
 
-    function loadCompany(){
+    function loadCompany(id){
         API.getEmployer(id)
         .then(data=>{
             setUserState(data.data)
@@ -53,4 +53,4 @@ function empPersonal(props) {
 
     )
 }
-export default empPersonal;
+export default EmpPersonal;
