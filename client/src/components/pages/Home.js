@@ -9,20 +9,18 @@ function Home() {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   return (
+
+  <div className="container">
     <div>
       <HomeImage backgroundImage={building}>
-        <h1 className="display-4">Welcome to the space portal</h1>
-        <h2 className="lead">A place for developers and employers to get connected.</h2>
-        {/* <p></p>
-        <p>Select which option applies to you to create an account:</p> */}
+        <h1 className="display-4">Welcome to Git Connected</h1>
+        <p className="lead">A place for developers and employers to get connected.  Yeehaw.</p>
+        <hr className="my-4"/>
       </HomeImage>
-        <ul className="list-group">
-          <a className="list-group-item btn btn-light" type='button' href='/dev-create-account'>I'm a developer!</a>
-          <a className="list-group-item btn btn-light" type='button' href='/emp-create-account'>I need a developer!</a>
-        </ul>
+
       <div>
       {!isAuthenticated && (
-        <button className='btn btn-light' onClick={() => loginWithRedirect({})}>Log in</button>
+        <button className='btn btn-light' onClick={() => loginWithRedirect({})}>Log in or Sign up</button>
       )}
 
       {isAuthenticated && <button className='btn btn-light' onClick={() => logout()}>Log out</button>}
