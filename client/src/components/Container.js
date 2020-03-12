@@ -2,7 +2,7 @@ import React from "react";
 
 function Container(props){
     return(
-        <div className="container-fluid">{props.children}</div>
+        <div className="container-fluid" style={{position: "relative", height: "100%vh"}}>{props.children}</div>
     )
 }
 

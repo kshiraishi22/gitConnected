@@ -1,15 +1,16 @@
 import HomeImage from "../Styling/HomeImage";
 import building from "../Styling/Images/building_photo.jpeg";
 import React, { useState, useEffect } from "react";
-import { Button } from "reactstrap";
-import { Link, Route } from "react-router-dom";
+import API from "../../utils/API"
+import { Button } from 'reactstrap';
+import { Link, Route } from "react-router-dom"
 import DevFeed from "../developer/devFeed";
 import EmpFeed from "../employer/empFeed";
 
 function Home() {
   const devID = "5e69316dc528fd5c40dbace2";
   const empID = "5e69316dc528fd5c40dbace1";
-
+  
   const [admin, setAdmin] = useState({
     id: "Mongoose id"
   });
@@ -24,6 +25,7 @@ function Home() {
     setAdmin({ ...admin, [name]: empID });
     console.log(admin);
   }
+
 
   return (
     <>

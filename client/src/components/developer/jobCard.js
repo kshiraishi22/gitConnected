@@ -7,7 +7,7 @@ import { Link, Route } from "react-router-dom";
 function JobCard(props) {
   return (
     <>
-      <div className="card" style={{ marginTop: "5px" }}>
+      <div className="card" style={{width: "75%", margin: "auto", marginBottom: "20px", marginTop: "20px"}}>
         <div className="card-header">Company Name</div>
         <div className="card-body">
           <h5 className="card-title">{props.data.title}</h5>

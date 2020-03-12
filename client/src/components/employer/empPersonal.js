@@ -23,7 +23,7 @@ function EmpPersonal(props) {
         }).catch(err=> console.log (err))
     }
     return (
-        <div className="card" style={{ height: "100%", width: "100%", margin: "5%", position: "relative" }}>
+        <div className="card" style={{ height: "400px", width: "100%", margin: "5%", position: "relative" }}>
             <div className="card-body">
                 <div className="card-headers">
                     <h2>{userState.companyName}</h2>
