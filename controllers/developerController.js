@@ -27,7 +27,7 @@ module.exports = {
     // update SPECIFIC dev via id and update data in request body
     update: function(req, res){
         db.Developer
-        .findByIdAndUpdate({_id: req.params.id}, req.body)
+        .findByIdAndUpdate({_id: req.params.id}, {$push: {appliedTo: req.body}})
         .then(updatedDoc => res.json(updatedDoc))
         .catch(err => res.status(422).json(err))
     },

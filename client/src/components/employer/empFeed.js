@@ -6,7 +6,10 @@ import DevCard from "./devCard";
 import Container from "../Container";
 import EmpPersonal from "./empPersonal";
 import DevDetails from "./devDetails";
-import API from "../../utils/API"
+import API from "../../utils/API";
+import photo from "../Styling/Images/empfeed.png";
+import "../Styling/EmpFeedImage.css";
+import EmpFeedImage from "../Styling/EmpFeedImage";
 
 function EmpFeed(props) {
     const [devList, setDevList]=useState([]);
@@ -37,17 +40,19 @@ function EmpFeed(props) {
             <>
             {/* <Router> */}
             <Container>
+            <EmpFeedImage backgroundImage={photo}>
                 <Navbar />
                 <Footer />
               
                 <div className="row">
                 
-                <div className="col-2" style ={{backgroundColor: "blue",height: "500px", position: "relative"}}>
-                    <EmpPersonal user={"5e69316dc528fd5c40dbace1"} />
+                <div className="col-2" style ={{height: "500", position: "relative"}}>
+                    <EmpPersonal user={"5e69af9b39a8906f28d61ce9"} />
+
                     </div>
                 
               
-                    <div className="col-5" style= {{backgroundColor: "grey", height: "500px", overflowY:"scroll"}}>
+                    <div className="col-5" style= {{height: "500px", overflowY:"scroll"}}>
                         {devList.map(dev =>(
                             <DevCard setActive={populateActiveDev} url={props.match.url} data={dev} key={dev._id}/>
                         ))}
@@ -62,6 +67,7 @@ function EmpFeed(props) {
                     </div>
                     
                 </div>
+                </EmpFeedImage>
                 </Container>
               {/* </Router> */}
             </>

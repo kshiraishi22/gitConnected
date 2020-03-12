@@ -1,8 +1,7 @@
 const data = [
-  { "id": 1, "name": "Job 1", "description": "This is the greatest Job ever created.", "cost": "12.95" },
-  { "id": 2, "name": "Job 2", "description": "This is the greatest Job ever created.", "cost": "12.95" },
-  { "id": 3, "name": "Job 3", "description": "This is the greatest Job ever created.", "cost": "12.95" },
-  { "id": 4, "name": "Job 4", "description": "This is the greatest Job ever created.", "cost": "12.95" }
+  { "id": 1, "name": " Jr. Front End Developer", "description": "This is a phenomenal Jr postion into the exciting world of web development" },
+  { "id": 2, "name": "Jr. Back End Developer", "description": "This is a phenomenal Jr postion into the exciting world of web development" },
+  { "id": 3, "name": "Jr. Full Stack Developer", "description": "This is a phenomenal Jr postion into the exciting world of web development" },
 ]
 
 export default data

@@ -13,7 +13,7 @@ function EmpPersonal(props) {
     });
 
     useEffect(()=>{
-        loadCompany("5e69316dc528fd5c40dbace1")
+        loadCompany("5e69af9b39a8906f28d61ce9")
     });
 
     function loadCompany(id){
@@ -23,7 +23,7 @@ function EmpPersonal(props) {
         }).catch(err=> console.log (err))
     }
     return (
-        <div className="card" style={{ height: "100%", width: "100%", margin: "5%", position: "relative" }}>
+        <div className="card" style={{ height: "400px", width: "100%", margin: "5%", position: "relative" }}>
             <div className="card-body">
                 <div className="card-headers">
                     <h2>{userState.companyName}</h2>

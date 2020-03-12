@@ -16,7 +16,7 @@ function Personal(props) {
     })
 
     useEffect(()=>{
-        loadUser(props.user);
+        loadUser("5e69af9b39a8906f28d61cea");
     }, []);
     function loadUser(id){
         API.getDev(id).then((data)=>{
@@ -24,7 +24,8 @@ function Personal(props) {
         }).catch(err=>console.log(err));
     }
     return (
-        <div className="card" style={{ height: "95%", width: "95%", margin: "5%", position: "relative", display: "flex" }}>
+
+        <div className="card" style={{ height: "auto", width: "95%", margin: "5%", position: "relative", display: "flex" }}>
             <h2>{user.firstName} {user.lastName}</h2>
             <br />
             <p>{user.profile}</p>
@@ -33,6 +34,7 @@ function Personal(props) {
                     <li>Main development language: {user.language}</li>
                     <li>Location: {user.location}</li>
                 </ul>
+
             <br />
             
             <h3>Contact Me!</h3>

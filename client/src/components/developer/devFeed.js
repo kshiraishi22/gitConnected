@@ -7,20 +7,17 @@ import Container from "../Container";
 import Personal from "./Personal";
 import JobDetails from "./JobDetails";    
 import API from "../../utils/API";
+import photo from "../Styling/Images/devfeed.png";
+import "../Styling/DevFeedImage.css";
+import DevFeedImage from "../Styling/DevFeedImage";
 
 function DevFeed(props) {
   const [jobList, setJobList]=useState([]);
   const [activeJob, setActiveJob]=useState({})
-
   useEffect(() => {
     loadJobs();
   }, []);
 
-  function loadJobs() {
-    API.getAllJobs()
-      .then(data => setJobList(data.data))
-      .catch(err => console.log(err));
-  }
   const populateActiveJob=(id)=>{
     jobList.map( job=> {
       if( job._id === id ){
@@ -29,9 +26,18 @@ function DevFeed(props) {
     })
   }
 
+  function loadJobs() {
+    API.getAllJobs()
+      .then(data => setJobList(data.data))
+      .catch(err => console.log(err));
+  }
+
    return (
     <>
+    
       <Container>
+        <DevFeedImage backgroundImage={photo}>
+      
         <div className="row">
           <div className="col-12">
             <Navbar />
@@ -47,22 +53,22 @@ function DevFeed(props) {
           <div
             className="col-2"
             style={{
-              backgroundColor: "blue",
+              zIndex: "-5",
               height: "500px",
               position: "relative"
             }}
           >
+
             <Personal user={"5e69316dc528fd5c40dbace2"} />
           </div>
 
           <div
             className="col-5"
-            style={{
-              backgroundColor: "grey",
+              style={{
               height: "500px",
-              overflowY: "scroll"
-            }}
-          >
+              overflowY: "scroll",
+            paddingRight: "30px"}}
+          >            
               {jobList.map(job=>(
                 <JobCard setActive={populateActiveJob} url={props.match.url} data={job} key={job._id} />
               ))}
@@ -73,7 +79,10 @@ function DevFeed(props) {
             
           </div>
         </div>
+        
+        </DevFeedImage>
       </Container>
+    
     </>
   );
 
