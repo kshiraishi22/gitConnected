@@ -14,7 +14,7 @@ function JobCard(props) {
           <p className="card-text">{props.data.position}</p>
           <p className="card-text">{props.data.salary}</p>
           <p className="card-text">{props.data.empType}</p>
-          <Link to={`${props.url}/${props.data._id }`} key={props.data._id} className="btn btn-primary" onClick={(e)=> props.setActive(props.data._id)}>Details</Link>
+          <Link to={`${props.url}/${props.data._id }`} key={props.data._id} className="btn btn-primary" onClick={(e)=> props.setActive(props.data._id)}>Apply!</Link>
         </div>
       </div>
     </>

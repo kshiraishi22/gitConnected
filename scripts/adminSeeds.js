@@ -21,7 +21,8 @@ mongoose.connect(
       empType: "Full Time",
       language: "JavaScript",
       location: "East-Coast",
-      profile: "I enjoy web development and application building"
+      profile: "I enjoy web development and application building",
+      
   }
   const employerAdmin = {
       text: "Log in as Employer",
