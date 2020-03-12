@@ -3,10 +3,10 @@ import React from "react";
 function Navbar(props) {
   return (
     <nav
-      className="navbar navbar-light bg-light justify-content-between"
+      className="navbar navbar-dark bg-dark justify-content-between"
       style={{ position: "sticky" }}
     >
-      <a className="navbar-brand">Welcome {props.name}</a>
+      <a className="navbar-brand" style={{fontFamily: "Permanent Marker, cursive", fontStyle: "italic bold", color: "white"}}>Git Connected{props.name}</a>
       <form className="form-inline">
         <input
           className="form-control mr-sm-2"
