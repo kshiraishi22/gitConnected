@@ -16,7 +16,7 @@ function Personal(props) {
     })
 
     useEffect(()=>{
-        loadUser(props.user);
+        loadUser("5e69af9b39a8906f28d61cea");
     }, []);
     function loadUser(id){
         API.getDev(id).then((data)=>{

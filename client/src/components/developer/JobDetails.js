@@ -1,8 +1,16 @@
 import React from "react";
+import API from "../../utils/API";
+import data from "../../data";
 
 function jobDetails(props){
-    return(
+    const user = "5e69af9b39a8906f28d61cea";
 
+    function applyJob(id, jobType){
+        API.updateDev(id, jobType).then(data=>console.log(data)).catch(err=>console.log(err));
+        alert("Gary has applied to "+jobType)
+    }
+    return(
+       
         <div className="card" style={{margin: "5px", position: "relative"}}>          
             <div className="card-headers" >
                 Company Name
@@ -14,7 +22,7 @@ function jobDetails(props){
                 <p className="card-text">{props.description}</p>
                 <br />
                 <br />
-                <button type="button" class="btn btn-secondary" style={{position: "absolute", marginTop: "10px",bottom: "5px"}}>Apply Now</button>     
+                <button type="button" class="btn btn-secondary" style={{position: "absolute", marginTop: "10px",bottom: "5px"}} onClick={applyJob(user, props.title)}>Apply Now</button>     
         </div>
     )
 }
