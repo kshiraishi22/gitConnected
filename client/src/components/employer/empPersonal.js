@@ -13,7 +13,7 @@ function EmpPersonal(props) {
     });
 
     useEffect(()=>{
-        loadCompany("5e69316dc528fd5c40dbace1")
+        loadCompany("5e69af9b39a8906f28d61ce9")
     });
 
     function loadCompany(id){
