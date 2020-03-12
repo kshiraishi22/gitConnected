@@ -1,10 +1,20 @@
+import { Route } from 'react-router-dom';
+import PostedTable from "../employer/PostedTable";
+import PostedList from "../employer/PostedList";
+import data from "../../data.js";
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+
 import desk from "../Styling/Images/empProfileImage.jpg";
 import EmpProfileImage from "../Styling/DevProfileImage";
 import "../Styling/EmpProfileImage.css";
 import API from "../../utils/API";
 
+const columns = [
+  {id: 1, label: "Job Name"},
+]
+
+function EmpProfile(props) {
+=======
 function EmpProfile() {
   const [companyState, setCompanyState] = useState({
     text: "",

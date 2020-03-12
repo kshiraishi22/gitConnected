@@ -1,7 +1,7 @@
 import React from "react";
 import data from "../../data.js"
 
-class AppliedList extends React.Component {
+class PostedList extends React.Component {
 
   constructor(props){
     super(props)
@@ -28,7 +28,7 @@ class AppliedList extends React.Component {
   render(){
     return (
       <>
-        <div className="applied-list">
+        <div className="posted-list">
           <p>
             <strong>Name: </strong><br/>
             {this.state.selectedItem.name}
@@ -49,4 +49,4 @@ class AppliedList extends React.Component {
   }
 }
 
-export default AppliedList
+export default PostedList
