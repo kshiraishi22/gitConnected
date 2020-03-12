@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function AppliedTable(props){
+function PostedTable(props){
   return (
     <>
       <table className="table">
@@ -16,7 +16,7 @@ function AppliedTable(props){
           { props.data.map(row => (
             <tr key={row.id}>
               <td>
-                <Link to={`/profile/dev/${row.id}`}>
+                <Link to={`/profile/emp/${row.id}`}>
                   {row.name}
                 </Link>
               </td>
@@ -28,4 +28,4 @@ function AppliedTable(props){
   )
 }
 
-export default AppliedTable;
+export default PostedTable;

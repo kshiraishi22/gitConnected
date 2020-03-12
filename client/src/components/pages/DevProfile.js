@@ -1,23 +1,23 @@
-import { Route } from 'react-router-dom'
-import AppliedList from "../developer/AppliedList";
-import AppliedTable from "../developer/AppliedTable";
-import data from "../../data"
 import React from "react";
+import { Route } from 'react-router-dom'
+import AppliedTable from "../developer/AppliedTable";
+import AppliedList from "../developer/AppliedList";
+import data from "../../data.js"
+
 import group from "../Styling/Images/devProfileImage.jpg";
 import DevProfileImage from "../Styling/DevProfileImage";
 import "../Styling/DevProfileImage.css";
-
 
 const columns = [
   {id: 1, label: "Job Name"},
 ]
 
 function DevProfile(props) {
- 
   return (
     <div>
       <DevProfileImage backgroundImage={group}>
         <h1 className="display-4">Welcome!</h1>
+        <div className="allCards">
           <div className="container">
             <div className="row">
               <div className="col-3">
@@ -55,6 +55,7 @@ function DevProfile(props) {
             </div>
           </div>
         </div>
+      </div>
       </DevProfileImage>
     </div>            
   )}

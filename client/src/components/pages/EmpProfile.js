@@ -1,10 +1,18 @@
 import React from "react";
-import { Route } from 'react-router-dom'
+import { Route } from 'react-router-dom';
+import PostedTable from "../employer/PostedTable";
+import PostedList from "../employer/PostedList";
+import data from "../../data.js";
+
 import desk from "../Styling/Images/empProfileImage.jpg";
 import EmpProfileImage from "../Styling/DevProfileImage";
 import "../Styling/EmpProfileImage.css";
 
-function EmpProfile() {
+const columns = [
+  {id: 1, label: "Job Name"},
+]
+
+function EmpProfile(props) {
   return (
     <>
       <EmpProfileImage backgroundImage={desk}>
@@ -27,27 +35,25 @@ function EmpProfile() {
             <div className="col-8">
               <div class="card mb-4">
                 <div class="card-body">  
-                  <h2 class="card-title">Posted Jobs</h2>
-                  <li class="card-text">Jr. Web Developer </li>
-                  <li class="card-text">"React Developer </li>
-                  <li class="card-text">"UI/UX Developer </li>
+                  <h2 className="card-title">Posted Jobs</h2>
+                    <PostedTable columns={columns} data={data} />
                 </div>
               </div>
             </div>
           </div>
           <div className="row">
             <div className="col-12">
-              <div class="card">
-                <div class="card-body">
-                  <h2 class="card-title">Jr. Web Developer</h2>
-                  <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                  <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                  <p class="card-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                  </div>
-                </div>  
-              </div>
+              <div className="card mb-4">
+                <div className="card-body">
+                  <Route
+                    exact path={`${props.match.url}/:id`}
+                    render={(props) => <PostedList {...props} />}
+                  />
+                </div>
+              </div>  
             </div>
           </div>
+        </div>
       </EmpProfileImage>
     </>            
   )}
