@@ -10,7 +10,7 @@ function DevCard(props) {
             
             <>
 
-<div className="card" style={{width: "75%", margin: "auto", marginBottom: "20px", marginTop: "20px"}}>
+<div className="details-card" style={{width: "75%", margin: "auto", marginBottom: "20px", marginTop: "20px", borderRadius:"0"}}>
                     <div className="card-header">
                         Developer Name: {props.data.firstName} {props.data.lastName}
                     </div>
@@ -19,7 +19,7 @@ function DevCard(props) {
                         <p className="card-text">Languages {props.data.languages}</p>
                         <p className="card-text">Employment Type Seeking: {props.data.empType}</p>
                         
-                        <Link to={`${props.url}/${props.data._id}`} key={props.data._id} className="btn btn-primary" onClick={(e)=>props.setActive(props.data._id)}>Details</Link>
+                        <Link to={`${props.url}/${props.data._id}`} key={props.data._id} className="btn btn-secondary" onClick={(e)=>props.setActive(props.data._id)}>Details</Link>
                        
                        
                         
