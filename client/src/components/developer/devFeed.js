@@ -14,22 +14,22 @@ import DevFeedImage from "../Styling/DevFeedImage";
 function DevFeed(props) {
   const [jobList, setJobList]=useState([]);
   const [activeJob, setActiveJob]=useState({})
-
   useEffect(() => {
     loadJobs();
   }, []);
 
-  function loadJobs() {
-    API.getAllJobs()
-      .then(data => setJobList(data.data))
-      .catch(err => console.log(err));
-  }
   const populateActiveJob=(id)=>{
     jobList.map( job=> {
       if( job._id === id ){
         setActiveJob(job)
       }
     })
+  }
+
+  function loadJobs() {
+    API.getAllJobs()
+      .then(data => setJobList(data.data))
+      .catch(err => console.log(err));
   }
 
    return (
@@ -54,11 +54,11 @@ function DevFeed(props) {
             className="col-2"
             style={{
               zIndex: "-5",
-              height: "100%vh",
+              height: "500px",
               position: "relative"
             }}
           >
-            <Personal user={props} />
+            <Personal />
           </div>
 
           <div
@@ -67,8 +67,7 @@ function DevFeed(props) {
               height: "500px",
               overflowY: "scroll",
             paddingRight: "30px"}}
-          >
-            
+          >            
               {jobList.map(job=>(
                 <JobCard setActive={populateActiveJob} url={props.match.url} data={job} key={job._id} />
               ))}

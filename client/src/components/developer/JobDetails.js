@@ -2,18 +2,10 @@ import React from "react";
 
 function jobDetails(props){
     return(
-        <div className="card" style={{padding: "5px"}}>
-           
-               
+        <div className="card" style={{margin: "5px", position: "relative"}}>          
             <div className="card-headers" >
                 Company Name
-                </div>
-           
-                
-            
-          
-            
-            
+                </div>        
                 <p className="card-text">Seeking: {props.title}</p>
                 <p className="card-text">Job Type: {props.empType} Position: {props.position}</p>
                 <p className="card-text">Salary: {props.salary}</p>

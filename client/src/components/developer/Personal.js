@@ -25,7 +25,7 @@ function Personal(props) {
     }
     return (
 
-        <div className="card" style={{ height: "95%", width: "95%", margin: "5%", position: "relative", display: "flex" }}>
+        <div className="card" style={{ height: "auto", width: "95%", margin: "5%", position: "relative", display: "flex" }}>
             <h2>{user.firstName} {user.lastName}</h2>
             <br />
             <p>{user.profile}</p>
