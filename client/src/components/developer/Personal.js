@@ -4,7 +4,7 @@ import DevCreateAccount from "../pages/DevCreateAccount"
 
 function Personal(props) {
     return (
-        <div className="card" style={{ height: "95%", width: "95%", margin: "5%", position: "relative", display: "flex" }}>
+        <div className="card" style={{ height: "95%", margin: "5%", position: "relative", display: "flex" }}>
             <h2>Developer John</h2>
             <br />
 

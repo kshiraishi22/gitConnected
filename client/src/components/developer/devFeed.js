@@ -7,7 +7,9 @@ import Container from "../Container";
 import Personal from "./Personal";
 import JobDetails from "./JobDetails";    
 import API from "../../utils/API";
-import { PromiseProvider } from "mongoose";
+import photo from "../Styling/Images/devfeed.png";
+import "../Styling/DevFeedImage.css";
+import DevFeedImage from "../Styling/DevFeedImage";
 
 function DevFeed(props) {
   const [jobList, setJobList]=useState([]);
@@ -32,7 +34,10 @@ function DevFeed(props) {
 
    return (
     <>
+    
       <Container>
+        <DevFeedImage backgroundImage={photo}>
+      
         <div className="row">
           <div className="col-12">
             <Navbar />
@@ -48,8 +53,8 @@ function DevFeed(props) {
           <div
             className="col-2"
             style={{
-              backgroundColor: "blue",
-              height: "500px",
+              zIndex: "-5",
+              height: "100%vh",
               position: "relative"
             }}
           >
@@ -58,12 +63,12 @@ function DevFeed(props) {
 
           <div
             className="col-5"
-            style={{
-              backgroundColor: "grey",
+              style={{
               height: "500px",
-              overflowY: "scroll"
-            }}
+              overflowY: "scroll",
+            paddingRight: "30px"}}
           >
+            
               {jobList.map(job=>(
                 <JobCard setActive={populateActiveJob} url={props.match.url} data={job} key={job._id} />
               ))}
@@ -74,7 +79,10 @@ function DevFeed(props) {
             
           </div>
         </div>
+        
+        </DevFeedImage>
       </Container>
+    
     </>
   );
 

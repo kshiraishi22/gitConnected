@@ -1,6 +1,6 @@
 .HomeImage {
   height: 700px;
-  background-size: cover;
+  background-size: cover; 
   background-position: center;
   position: relative;
 }

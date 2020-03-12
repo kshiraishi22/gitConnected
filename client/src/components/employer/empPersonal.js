@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, Route } from "react-router-dom"
 import EmpCreateAccount from "../pages/EmpCreateAccount"
 import API from "../../utils/API";
-function empPersonal(props) {
+function EmpPersonal(props) {
     const [userState, setUserState]=useState({
        companyName: "",
        email: "",
@@ -11,16 +11,16 @@ function empPersonal(props) {
        location: "",
        about: ""
     })
-    useEffect(()=>{
-        loadCompany()
-    })
+    // useEffect(()=>{
+    //     loadCompany()
+    // })
 
-    function loadCompany(){
-        API.getEmployer(id)
-        .then(data=>{
-            setUserState(data.data)
-        }).catch(err=> console.log (err))
-    }
+    // function loadCompany(){
+    //     // API.getEmployer(id)
+    //     .then(data=>{
+    //         setUserState(data.data)
+    //     }).catch(err=> console.log (err))
+    // }
     return (
         <div className="card" style={{ height: "100%", width: "100%", margin: "5%", position: "relative" }}>
             <div className="card-body">
@@ -53,4 +53,4 @@ function empPersonal(props) {
 
     )
 }
-export default empPersonal;
+export default EmpPersonal;

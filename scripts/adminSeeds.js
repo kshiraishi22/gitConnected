@@ -13,6 +13,7 @@ mongoose.connect(
   );
 
   const developerAdmin = {
+      text: "Log in as Developer",
       firstName: "Gary",
       lastName: "Almes",
       emailAddress: "garytalmes@gmail.com",
@@ -23,6 +24,7 @@ mongoose.connect(
       profile: "I enjoy web development and application building"
   }
   const employerAdmin = {
+      text: "Log in as Employer",
       companyName: "Trilogy",
       email: "trilogyEducation@email.triligy.edu",
       phone: "1-800-955-8362",

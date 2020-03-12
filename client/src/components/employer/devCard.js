@@ -10,7 +10,7 @@ function DevCard(props) {
             
             <>
 
-                <div className="card" style={{marginTop: "5px"}}>
+<div className="card" style={{width: "75%", margin: "auto", marginBottom: "20px", marginTop: "20px"}}>
                     <div className="card-header">
                         Developer Name: {props.data.firstName} {props.data.lastName}
                     </div>
