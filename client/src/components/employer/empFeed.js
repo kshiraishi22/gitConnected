@@ -47,7 +47,8 @@ function EmpFeed(props) {
                 <div className="row">
                 
                 <div className="col-2" style ={{height: "500", position: "relative"}}>
-                    <EmpPersonal user={props} />
+                    <EmpPersonal user={"5e69316dc528fd5c40dbace1"} />
+
                     </div>
                 
               

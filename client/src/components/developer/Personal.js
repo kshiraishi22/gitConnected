@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, Route } from "react-router-dom"
-import DevCreateAccount from "../pages/DevCreateAccount"
+import DevProfile from "../pages/DevCreateAccount"
 import API from "../../utils/API";
 
 function Personal(props) {
@@ -16,7 +16,7 @@ function Personal(props) {
     })
 
     useEffect(()=>{
-        loadUser(props);
+        loadUser(props.user);
     }, []);
     function loadUser(id){
         API.getDev(id).then((data)=>{
@@ -43,10 +43,10 @@ function Personal(props) {
             </ul>
 
 
-            <Link to="/dev-create-account" role="button" className="btn btn-secondary btn-block" style={{ position: "absolute", bottom: "5px" }}>
-            Update Profile
+            <Link to="/profile/dev" role="button" className="btn btn-secondary btn-block" style={{ position: "absolute", bottom: "5px" }}>
+            View Profile
             </Link>
-            <Route exact path="/dev-create-account" component={DevCreateAccount} />
+            <Route exact path="/dev-create-account" component={DevProfile} />
 
 
             {/* </div> */}
