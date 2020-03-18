@@ -33,7 +33,7 @@ function DevCreateAccount() {
         alert('Please enter an email address.');
         return;
       }
-      if (password.length < 4) {
+      if (password.length < 6) {
         alert('Please enter a password.');
         return;
       }
@@ -51,9 +51,25 @@ function DevCreateAccount() {
         }
         console.log(error);
         // [END_EXCLUDE]
+      }).then(() => {
+        firebase.auth().currentUser.sendEmailVerification()
       });
       // [END createwithemail]
     }
+
+    // /**
+    //  * Sends an email verification to the user.
+    //  */
+    // function sendEmailVerification() {
+    //   // [START sendemailverification]
+    //   firebase.auth().currentUser.sendEmailVerification().then(function() {
+    //     // Email Verification sent!
+    //     // [START_EXCLUDE]
+    //     // alert('Email Verification Sent!');
+    //     // [END_EXCLUDE]
+    //   });
+    //   // [END sendemailverification]
+    // }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -124,9 +140,21 @@ function DevCreateAccount() {
               <input
                 onChange={handleInputChange}
                 name="emailAddress"
+                id="email"
                 type="email"
                 className="form-control"
                 placeholder="name@example.com (Required)"
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                onChange={handleInputChange}
+                name="password"
+                id="password"
+                type="password"
+                className="form-control"
+                placeholder="Must be at least 6 characters long"
               />
             </div>
             <div className="form-group">
