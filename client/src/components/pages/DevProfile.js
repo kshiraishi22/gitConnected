@@ -14,30 +14,7 @@ const columns = [
 ]
 
 function DevProfile(props) {
-  return (
-    <div>
-      <DevProfileImage backgroundImage={group}>
-        <h1 className="display-4">Welcome!</h1>
-        <div className="allCards">
-          <div className="container">
-            <div className="row">
-              <div className="col-3">
-                <div className="card mb-4">
-                  <div className="card-body">
-                    <h2 className="card-title">About Me</h2>
-                    <img src="" />
-                    <p className="card-text">First Name:</p>
-                    <p className="card-text">Last Name:</p>
-                    <p className="card-text">Email address:</p>
-                    <p className="card-text">Type of Developer:</p>
-                    <p className="card-text">Type of Employment:</p>
-                    <p className="card-text">Primary Languages:</p>
-                    <p className="card-text">Summary:</p>
-                  </div>
-=======
-const columns = [{ id: 1, label: "Job Name" }];
 
-function DevProfile(props) {
   const [userState, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -90,10 +67,10 @@ function DevProfile(props) {
             </div>
           </div>
         </div>
-      </div>
+      
       </DevProfileImage>
     </div>
   );
-}
+  }
 
 export default DevProfile;

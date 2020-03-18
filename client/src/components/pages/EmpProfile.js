@@ -14,8 +14,8 @@ const columns = [
 ]
 
 function EmpProfile(props) {
-=======
-function EmpProfile() {
+
+
   const [companyState, setCompanyState] = useState({
     text: "",
     companyName: "",
