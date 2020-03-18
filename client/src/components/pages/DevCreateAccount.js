@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import developers from "../Styling/Images/developer_image.jpg"
 import DevCreateImage from "../Styling/DevCreateImage";
-import "../Styling/DevCreateImage.css"
+import "../Styling/DevCreateImage.css";
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import * as firebase from "firebase/app";
+
+// Add the Firebase services that you want to use
+import "firebase/auth";
+
 
 function DevCreateAccount() {
   const [formObject, setFormObject] = useState({
@@ -15,6 +22,54 @@ function DevCreateAccount() {
     location: "",
     profile: ""
   });
+
+  /**
+     * Handles the sign up button press.
+     */
+    function handleSignUp() {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      if (email.length < 4) {
+        alert('Please enter an email address.');
+        return;
+      }
+      if (password.length < 6) {
+        alert('Please enter a password.');
+        return;
+      }
+      // Create user with email and pass.
+      // [START createwithemail]
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      }).then(() => {
+        firebase.auth().currentUser.sendEmailVerification()
+      });
+      // [END createwithemail]
+    }
+
+    // /**
+    //  * Sends an email verification to the user.
+    //  */
+    // function sendEmailVerification() {
+    //   // [START sendemailverification]
+    //   firebase.auth().currentUser.sendEmailVerification().then(function() {
+    //     // Email Verification sent!
+    //     // [START_EXCLUDE]
+    //     // alert('Email Verification Sent!');
+    //     // [END_EXCLUDE]
+    //   });
+    //   // [END sendemailverification]
+    // }
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -85,9 +140,21 @@ function DevCreateAccount() {
               <input
                 onChange={handleInputChange}
                 name="emailAddress"
+                id="email"
                 type="email"
                 className="form-control"
                 placeholder="name@example.com (Required)"
+              />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                onChange={handleInputChange}
+                name="password"
+                id="password"
+                type="password"
+                className="form-control"
+                placeholder="Must be at least 6 characters long"
               />
             </div>
             <div className="form-group">
@@ -186,7 +253,7 @@ function DevCreateAccount() {
                   formObject.emailAddress
                 )
               }
-              onClick={handleFormSubmit}>Submit
+              onClick={handleFormSubmit, handleSignUp}>Submit
             </button>
           </div>
         </form>

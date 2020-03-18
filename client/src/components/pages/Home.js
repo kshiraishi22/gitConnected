@@ -4,8 +4,14 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API"
 import { Button } from 'reactstrap';
 import { Link, Route } from "react-router-dom"
-import DevFeed from "../developer/devFeed";
+import selectform from "../pages/SelectForm";
 import EmpFeed from "../employer/empFeed";
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import * as firebase from "firebase/app";
+
+// Add the Firebase services that you want to use
+import "firebase/auth";
 
 function Home() {
   const devID = "5e69316dc528fd5c40dbace2";
@@ -26,7 +32,107 @@ function Home() {
     console.log(admin);
   }
 
+  // Email validation
+  function validateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+      return true;
+    } else {
+      alert("You have entered an invalid email address!");
+      return false;
+    }
+  }
 
+  /**
+     * Handles the sign in button press.
+     */
+    function toggleSignIn() {
+      if (firebase.auth().currentUser) {
+        // [START signout]
+        firebase.auth().signOut();
+        // [END signout]
+      } else {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        if (email.length < 4) {
+          alert('Please enter an email address.');
+          return;
+        }
+        if (password.length < 4) {
+          alert('Please enter a password.');
+          return;
+        } 
+        // Sign in with email and pass.
+        // [START authwithemail]
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // [START_EXCLUDE]
+          if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+          } else {
+            alert(errorMessage);
+          }
+          console.log(error);
+          if (!error) {
+            console.log('success')
+          }
+          document.getElementById('quickstart-sign-in').disabled = false;
+          // [END_EXCLUDE]
+        });
+        // [END authwithemail]
+      }
+      document.getElementById('quickstart-sign-in').disabled = true;
+    }
+
+    
+
+    /**
+     * initApp handles setting up UI event listeners and registering Firebase auth listeners:
+     *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or
+     *    out, and that is where we update the UI.
+     */
+    function initApp() {
+      // Listening for auth state changes.
+      // [START authstatelistener]
+      firebase.auth().onAuthStateChanged(function(user) {
+        // [START_EXCLUDE silent]
+        // document.getElementById('quickstart-verify-email').disabled = true;
+        // [END_EXCLUDE]
+        if (user) {
+          // User is signed in.
+          var displayName = user.displayName;
+          var email = user.email;
+          var emailVerified = user.emailVerified;
+          var photoURL = user.photoURL;
+          var isAnonymous = user.isAnonymous;
+          var uid = user.uid;
+          var providerData = user.providerData;
+          // [START_EXCLUDE]
+          document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
+          document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+          document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
+          if (!emailVerified) {
+            document.getElementById('quickstart-verify-email').disabled = false;
+          }
+          // [END_EXCLUDE]
+        } else {
+          // User is signed out.
+          // [START_EXCLUDE]
+          document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
+          document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+          document.getElementById('quickstart-account-details').textContent = 'null';
+          // [END_EXCLUDE]
+        }
+        // [START_EXCLUDE silent]
+        document.getElementById('quickstart-sign-in').disabled = false;
+        // [END_EXCLUDE]
+      });
+      // [END authstatelistener]
+    };
+
+    initApp();
+      
   return (
     <>
       <HomeImage backgroundImage={building}>
@@ -34,21 +140,53 @@ function Home() {
         <h2 className="lead">
           A place for developers and employers to get connected. Yeehaw!!
         </h2>
-        <div className="buttons">
-          <Link to="/feed/dev">
-            <Button name="id" onClick={devClick} color="primary">
-              Log in as Admin Developer
-            </Button>{" "}
-          </Link>
-          <Route path="/feed/dev" render={(props)=>(<DevFeed {...props} id={admin.id}/>)}/>
-          <Link to="/feed/emp">
-            {" "}
-            <Button name="id" onClick={empClick} color="success">
-              Log in as Admin Employer
+        <p>Get started by logging in or signing up</p>
+        <br/>
+        <div className="container signinForm">
+          <div className="row">
+          <div className="col-md-6 col-12 form-group">
+            <input
+              // onChange={handleInputChange}
+              name="emailAddress"
+              id="email"
+              type="email"
+              className="form-control"
+              placeholder="Enter Email"
+            />
+            <br/>
+            <input
+              // onChange={handleInputChange}
+              name="password"
+              type="password"
+              id="password"
+              className="form-control"
+              placeholder="Enter Password"
+            />
+            <br/>
+            <Button name="id" id="quickstart-sign-in" onClick={toggleSignIn} color="primary">
+              Log in
             </Button>
+          </div>
+          <div className="col-md-6 col-12 form-group">
+            <br/>
+            <Link to="/selectform">
+              <Button name="id" color="success">
+                Sign up
+              </Button>
           </Link>
-          <Route path="/feed/emp" render={(props)=>(<EmpFeed {...props} id={admin.id}/>)}/>
+          </div>
+          </div>
+          
+          <div className="quickstart-user-details-container">
+            Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+            <div>Firebase auth <code>currentUser</code> object value:</div>
+            <pre><code id="quickstart-account-details">null</code></pre>
+          </div>
         </div>
+       
+          
+          
+        
       </HomeImage>
     </>
   );

@@ -2,7 +2,14 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import code from "../Styling/Images/employer_image.jpg"
 import EmpCreateImage from "../Styling/EmpCreateImage";
-import "../Styling/EmpCreateImage.css"
+import "../Styling/EmpCreateImage.css";
+// Firebase App (the core Firebase SDK) is always required and
+// must be listed before other Firebase SDKs
+import * as firebase from "firebase/app";
+
+// Add the Firebase services that you want to use
+import "firebase/auth";
+
 
 function EmpCreateAccount() {
   const [formObject, setFormObject] = useState({
