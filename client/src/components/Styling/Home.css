@@ -35,3 +35,11 @@
 .buttons {
   padding-top: 45px;
 }
+
+.quickstart-user-details-container {
+  color: white;
+}
+
+#quickstart-account-details {
+  background-color: white;
+}

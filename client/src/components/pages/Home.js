@@ -176,6 +176,12 @@ function Home() {
           </Link>
           </div>
           </div>
+          
+          <div className="quickstart-user-details-container">
+            Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+            <div>Firebase auth <code>currentUser</code> object value:</div>
+            <pre><code id="quickstart-account-details">null</code></pre>
+          </div>
         </div>
        
           
