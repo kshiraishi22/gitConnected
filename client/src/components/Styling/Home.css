@@ -22,7 +22,7 @@
   z-index: 2;
 }
 
-.HomeImage h1, .HomeImage h2 {
+.HomeImage h1, .HomeImage h2, p {
   color: white;
 }
 
