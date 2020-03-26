@@ -4,6 +4,7 @@ const express = require("express"); // web server
 const mongoose = require("mongoose"); //database
 const dbConfig = require("./db/config"); //database 
 const routes = require("./routes")//api router
+const {MongoClient} = require('mongodb');
 
 //REMOTE DB HOSTING: 
 
@@ -21,9 +22,10 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes) //API routes
 
+
 //********** SYNC-DB ***********************************************************************************//
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/devNetwork_DB", dbConfig.settings);
+mongoose.connect("mongodb+srv://kdurga:kdurga@gitcloud-hed4v.gcp.mongodb.net/test?retryWrites=true&w=majority" || "mongodb://localhost/devNetwork_DB", dbConfig.settings);
 app.listen(PORT, function() {
   console.log(`API Server listening on port:${PORT}!`);
 });
