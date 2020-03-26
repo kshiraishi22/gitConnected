@@ -57,17 +57,8 @@ function DeveloperProfile(props) {
               <div class="card mb-4">
                 <div class="card-body">  
                   <h2 className="card-title">Applied Jobs</h2>
-                  <AppliedTable columns={columns} user={currentUser} />
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-12">
-              <div class="card mb-4">
-                <div className="card-body">
-                  <Route
-                    exact path={`${props.match.url}/:id`}
-                    render={(props) => <AppliedList {...props} />}
-                  />
+                  {currentUser.appliedTo}
+                  {/* <AppliedTable columns={columns} user={currentUser} /> */}
                 </div>
               </div>
             </div>
