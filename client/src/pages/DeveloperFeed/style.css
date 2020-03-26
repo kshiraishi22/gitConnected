@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+#main {
+    display: flex;
+    /* flex: 1; */
+    height: 100vh; 
+    padding-top: 10vh;
+}
+#main > article {
+    flex: 0 1 40vw;
+}
+
+#main > nav {
+    flex: 0 1 20vw; 
+}
+*/
+#main > aside {
+    flex: 40vw;
+}
+
+/* #main > nav {
+    order: -1;
+} */
+
+/* header, article, nav, aside {
+    padding: 1em;
+} */
+
+
+header {    
+    height: 10vh;
+}
+
+
+
+.DevBackgroundImage{
+    background-size: cover;  
+}
+/* 
+@media screen and (max-width: 878px) {
+    
+    
+    #main{
+        display: block;
+    }
+} */
+
