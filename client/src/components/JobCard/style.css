@@ -1,0 +1,19 @@
+
+.card {
+    display: flex;
+    padding: 5px;    
+    margin: auto;
+    margin-bottom: 20px;  
+    position: relative;   
+    border-radius: 0rem;
+}
+
+p{
+    color: black;
+}
+
+.apply {
+    display: block;
+    position: absolute;
+    bottom: 5px;
+}
