@@ -5,6 +5,9 @@ const mongoose = require("mongoose"); //database
 const dbConfig = require("./db/config"); //database 
 const routes = require("./routes")//api router
 
+//REMOTE DB HOSTING: 
+
+
 //********* SERVER CONFIG *********************************************************************************//
 
 const app = express();
