@@ -75,8 +75,6 @@ function DeveloperFeed(props) {
             <nav>
               <LeftPanel>
                 <UserInfo user={currentUser}>
-                  <HomeButton />
-                  <ProfileButton />
                 </UserInfo>
               </LeftPanel>
             </nav>

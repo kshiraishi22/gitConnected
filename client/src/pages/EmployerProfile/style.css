@@ -44,3 +44,9 @@ label {
   color: white;
   
 }
+
+#employerhead {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  color: white !important;
+}

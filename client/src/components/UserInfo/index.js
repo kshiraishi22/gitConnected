@@ -4,13 +4,15 @@ import React from "react";
 import "./style.css";
 
 const UserInfo = props => {
-  console.log(props.userId);
+  console.log(props.user);
   return (
     <div className="card">
-      {/* <h5 className="card-header">Welcome!</h5>
+      <h5 className="card-header">Welcome!</h5>
       <div className="card-title">{`${props.user.firstName} ${props.user.lastName}`}</div>
-      <div className="card-body">{props.user.devType}</div> */}
+      <div className="card-body">{props.user.devType}</div>
+      {props.children}
     </div>
+    
   );
 };
 

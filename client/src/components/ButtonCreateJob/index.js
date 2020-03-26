@@ -7,7 +7,7 @@ const CreateJob = ()=>{
     return(
         //navigates user to post job form
         <Link to="/postjob">
-             <button className="btn btn-outline-dark btn-lg btn-block" role="button">Post New Job</button>
+             <button id="jobbtn" className="btn" role="button">Post New Job</button>
         </Link>
        
     )

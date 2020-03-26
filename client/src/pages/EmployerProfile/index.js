@@ -33,7 +33,7 @@ function EmployerProfile(props) {
       <EmpNavbar />
       <Image backgroundImage={background}>
         <br />
-        <h1 className="display-6">Hi {currentUser.companyName}</h1>
+        <h1 id="employerhead" className="display-6">Hi {currentUser.companyName}</h1>
         <div className="container">
           <div className="row">
             <div className="col-4">

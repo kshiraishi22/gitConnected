@@ -70,8 +70,7 @@ function EmployerFeed(props) {
       <nav>
         <LeftPanel>
           <CompanyInfo user={currentUser}/>
-          <HomeButton />
-          <ProfileButton />
+
           <PostJobButton />
         </LeftPanel>
       </nav>
