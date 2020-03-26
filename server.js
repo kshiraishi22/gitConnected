@@ -24,7 +24,7 @@ app.use(routes) //API routes
 
 //********** SYNC-DB ***********************************************************************************//
 
-mongoose.connect("mongodb+srv://kdurga:kdurga@gitcloud-hed4v.gcp.mongodb.net/test?retryWrites=true&w=majority" || "mongodb://localhost/devNetwork_DB", dbConfig.settings);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/devNetwork_DB", dbConfig.settings);
 app.listen(PORT, function() {
   console.log(`API Server listening on port:${PORT}!`);
 });
