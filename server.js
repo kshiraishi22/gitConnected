@@ -4,7 +4,6 @@ const express = require("express"); // web server
 const mongoose = require("mongoose"); //database
 const dbConfig = require("./db/config"); //database 
 const routes = require("./routes")//api router
-const {MongoClient} = require('mongodb');
 
 //REMOTE DB HOSTING: 
 
