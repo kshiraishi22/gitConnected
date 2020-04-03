@@ -4,12 +4,12 @@ MERN Stack Networking application for developers to "git" connected
 ---
 
 # General Info
-gitConnected streamlines the search for programming jobs and people to do them. Our app puts development work at the hands of developers looking for work and allows employers to post information about jobs they have available as well as browse the profiles of programmers.
+A job listing app that focuses primarily on employment seeking web developers to connect with employers looking to hire them. The app includes a secure login, ability to view/edit profiles, apply to jobs (developers) and post jobs (employers).
 
 ---
 
 # Instructions
-When a user loads the app they have the option to either sign-in or create an account. Once logged in the user creates a profile as either a developer or an employer. Each user is taken to a feed page that either shows a developer available jobs, or shows an employer available developers. When the user makes a selection they are shown additional details about either the job or the developer.
+When a user loads the app they have the option to either sign-in or create an account. Once logged in, the user creates a profile as either a developer or an employer. Each user is taken to a feed page that either shows a developer available jobs, or shows an employer available developers. 
 
 ---
 
@@ -38,20 +38,20 @@ When a user loads the app they have the option to either sign-in or create an ac
 
 # Contributors
 
-- Michael Rempke
-- Ken Shirashi
+- Michael Rempe
+- Ken Shiraishi
 - Katie Durga
 - Khalil Hall
 
 ---
 
 # Deployed At
-https://gitconnected-b3faf.firebaseapp.com/ 
+https://git-connected.com
 
 ---
 
 # Github Repo
-https://github.com/MichaelRempe/gitConnected/edit/master/README.md
+https://github.com/MichaelRempe/gitConnected
 
 
 
