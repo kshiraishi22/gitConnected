@@ -1,6 +1,5 @@
 # gitConnected
-MERN Stack Networking application for developers to "git" connected
-
+MERN Stack Networking application for web developers to "git" connected with employers.
 ---
 
 # General Info
@@ -9,7 +8,7 @@ A job listing app that focuses primarily on employment seeking web developers to
 ---
 
 # Instructions
-When a user loads the app they have the option to either sign-in or create an account. Once logged in, the user creates a profile as either a developer or an employer. Each user is taken to a feed page that either shows a developer available jobs, or shows an employer available developers. 
+When the user goes on the gitconnected website, they are first introduced to the homepage. Here, the user can sign up for an account or sign in if they already have an account. Depending on whether the user is a developer or employer, they can create their own respective account. Once they create an account and login, the user will be taken to the feed page that either shows a developer available jobs, or shows an employer available developers. 
 
 ---
 
@@ -51,7 +50,7 @@ https://git-connected.com
 ---
 
 # Github Repo
-https://github.com/MichaelRempe/gitConnected
+https://github.com/kshiraishi22/gitConnected
 
 
 
